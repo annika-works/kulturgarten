@@ -4,7 +4,7 @@ import { Title } from "./common/Title";
 
 const Partner = () => {
     return (
-      <section className="wrapper utopie" id="werWirSind">
+      <section className="wrapper utopie" id="partner">
         <Title title="Partner">
           Ein Netzwerk voller <span>Support</span>.
         </Title>
