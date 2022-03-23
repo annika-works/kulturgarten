@@ -154,3 +154,18 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.partners {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner {
+  width: 150px;
+  margin: 15px;
+
+}
