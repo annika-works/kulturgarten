@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "../../contentful";
-import Illustration from "../assets/images/hero_blum.png";
+import Illustration from "../assets/images/kugapi_logo.svg";
 import HeroImage from "../assets/images/hero_img.jpg";
 
 const FullSizeImage = ({ children }) => (

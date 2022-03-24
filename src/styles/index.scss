@@ -89,8 +89,18 @@ span {
   &:last-child {
     max-width: initial;
   }
+
   @media (min-width: $desktop) {
     width: 450px;
+
+    img {
+      height:100% !important;
+    }
+  }
+
+  img {
+    height: 170px;
+    margin: 20px;
   }
 }
 
@@ -165,7 +175,10 @@ p {
 }
 
 .partner {
-  width: 150px;
+  width: 110px;
   margin: 15px;
 
+  @media (min-width: $desktop) {
+    width: 150px;
+  }
 }
