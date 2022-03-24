@@ -40,7 +40,6 @@ h2 {
 
   @media (min-width: $desktop) {
     font-size: 3.5rem;
-    text-align: initial;
   }
 }
 
@@ -90,8 +89,18 @@ span {
   &:last-child {
     max-width: initial;
   }
+
   @media (min-width: $desktop) {
     width: 450px;
+
+    img {
+      height:100% !important;
+    }
+  }
+
+  img {
+    height: 170px;
+    margin: 20px;
   }
 }
 
@@ -154,4 +163,22 @@ p {
   padding: 0.5rem 4rem;
   display: flex;
   justify-content: center;
+}
+
+.partners {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner {
+  width: 110px;
+  margin: 15px;
+
+  @media (min-width: $desktop) {
+    width: 150px;
+  }
 }
