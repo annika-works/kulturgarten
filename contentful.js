@@ -13,7 +13,7 @@ export const Link = ({ children, href, pdf}) => {
   return (<a href={href}>{children}</a>);
 };
 
-export const Image = ({src, alt}) => <img src={src} alt={alt} />
+export const Image = ({src, alt, className}) => <img src={src} alt={alt} className={className} />
 
 export const imprintStyling = {
     renderNode: {

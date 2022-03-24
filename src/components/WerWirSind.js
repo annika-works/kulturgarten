@@ -2,6 +2,7 @@ import React from "react";
 import { Text } from "../../contentful";
 import { Title } from "./common/Title";
 import WhoImage from "../assets/images/polaroid_team.jpg";
+import Spiral from "../assets/svgs/spiral_02.svg";
 
 const WerWirSind = () => {
   return (
@@ -9,9 +10,10 @@ const WerWirSind = () => {
       <Title title="Wer Wir sind">
         Die Bude voller <span>Leute</span>.
       </Title>
-      <div className="contentWer">
-        <div style={{margin: '0 0 4rem 0'}}>
-          <img src={WhoImage} alt="gloves" style={{width: '600px'}} />
+      <div className="contentSection">
+        <div style={{margin: '0 0 4rem 0', position: 'relative'}}>
+          <img src={Spiral} alt="decoration" className="secondSpiral"/>
+          <img src={WhoImage} alt="the team" style={{width: '600px'}} />
         </div>
         <Text>
           Wir sind ein bunter Haufen aus Freunden und Freundesfreunden mit

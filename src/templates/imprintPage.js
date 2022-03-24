@@ -17,7 +17,7 @@ const imprintTemplate = ({ pageContext }) => {
       </nav>
       <main>
         <section className="wrapper utopie">
-          <div className="contentWer">
+          <div className="contentSection">
             <Title title="Zum Verein">{titel}</Title>
             {renderRichText(content, imprintStyling)}
           </div>
