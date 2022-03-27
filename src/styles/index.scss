@@ -223,3 +223,33 @@ p {
     width: 150px;
   }
 }
+
+.blogEntry {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  article, figure {
+    width: 50%;
+  }
+
+  article {
+    padding: 2rem;
+    background: #F8F9F6;
+
+    time {
+      font-size: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 0.5em 0 0.7em 0;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+}

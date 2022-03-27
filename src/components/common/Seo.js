@@ -14,7 +14,7 @@ export default function Seo() {
                 <title>{title}</title>
                 <meta name="description" content={description} />
                 <meta charset="utf-8" />
-                <link rel="canonical" href={url} hrefLang="de-DE" />
+                <link rel="canonical" href={`https://${url}`} hrefLang="de-DE" />
             </Helmet>
         </>
     );
