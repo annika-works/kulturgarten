@@ -5,30 +5,40 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const blogPageTemplate = ({ pageContext }) => {
-    const { blogfoto, datum, kurzbeschreibung, titel} = pageContext.data;
-    console.log(pageContext.data);
-    const date = new Date(datum).toLocaleDateString('de-DE');
+  const { entries } = pageContext.data;
+  const date = datum => new Date(datum).toLocaleDateString("de-DE");
+  console.log(pageContext);
 
-    return (
-        <>
-        <Header />
-            <section className="wrapper utopie">
-                <Title title="Blog">Willkommen im <span>Projekt</span>!</Title>
-                <Text>In diesem Blog erzählen wir von unseren bisherigen Erfolgen, Arbeiten und Projekten, die im Kontext des KuGaPi Projektes so anfallen.</Text>
+  return (
+    <>
+      <Header />
+      <section className="wrapper utopie">
+        <Title title="Blog" className="blogPageTitle">
+          Willkommen im <span>Projekt</span>!
+        </Title>
+        <Text className="blogPageDescription">
+          In diesem Blog erzählen wir von unseren bisherigen Erfolgen, Arbeiten
+          und Projekten, die im Kontext des KuGaPi Projektes so anfallen.
+        </Text>
 
-                <article className="blogEntry">
-                    <Image src={blogfoto.file.url} alt={blogfoto.title}></Image>
-                    <article>
-                        <time>{date}</time>
-                        <h3>{titel}</h3>
-                        <p>{kurzbeschreibung} Lies mehr</p>
-                    </article>
-                </article>
+        {entries.map((entry, i) => (
+          <article className="blogPageEntry" key={i}>
+            <figure>
+              <Image src={entry.blogfoto.file.url} alt={entry.blogfoto.title}></Image>
+            </figure>
+            <article>
+              <time>{date(entry.datum)}</time>
+              <h3>{entry.titel}</h3>
+              <p>{entry.kurzbeschreibung}</p>
+              <a href={`/blog/${entry.slug}`}>Lies mehr</a>
+            </article>
+          </article>
+        ))}
 
-            </section>
-            <Footer/>
-        </>
-    )
-}
+      </section>
+      <Footer position='fixed'/>
+    </>
+  );
+};
 
 export default blogPageTemplate;

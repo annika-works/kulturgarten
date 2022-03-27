@@ -1,20 +1,22 @@
 const blogQuery = `{
-    allContentfulBlogEntry {
-        edges {
-          node {
+    allContentfulBlogEntries {
+      edges {
+        node {
+          entries {
             datum
-            breadcrumb
+            slug
             kurzbeschreibung
             titel
             blogfoto {
-                title
-                file {
-                    fileName
-                    url
+              title
+              file {
+                fileName
+                url
               }
             }
           }
         }
+      }
     }
 }`;
 

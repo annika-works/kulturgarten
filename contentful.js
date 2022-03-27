@@ -1,7 +1,7 @@
 import React from "react";
 import { BLOCKS } from '@contentful/rich-text-types';
 
-export const Text = ({ children, margin}) => <p style={{margin: margin}}>{children}</p>;
+export const Text = ({ children, className}) => <p className={className}>{children}</p>;
 
 export const Link = ({ children, href, pdf}) => {
     if(pdf !== null) {
@@ -13,7 +13,11 @@ export const Link = ({ children, href, pdf}) => {
   return (<a href={href}>{children}</a>);
 };
 
-export const Image = ({src, alt, className}) => <figure><img src={src} alt={alt} className={className} /></figure>
+export const Image = ({src, alt, className}) => <img src={src} alt={alt} className={className} />
+
+export const FullSizeImage = ({ children }) => (
+    <figure className="fullSizeImageContainer">{children}</figure>
+  );
 
 export const imprintStyling = {
     renderNode: {

@@ -1,13 +1,9 @@
 import React from "react";
-import { Image } from "../../contentful";
+import { FullSizeImage, Image } from "../../contentful";
 import Illustration from "../assets/images/kugapi_logo.svg";
 import HeroImage from "../assets/images/hero_img.jpg";
 import Spiral from "../assets/svgs/spiral_01.svg";
 import Heart from "../assets/svgs/heart.svg";
-
-const FullSizeImage = ({ children }) => (
-  <div className="fullSizeImageContainer">{children}</div>
-);
 
 function StartHero() {
   return (

@@ -18,6 +18,7 @@
     "@contentful/rich-text-react-renderer": "^15.11.1",
     "@contentful/rich-text-types": "^15.11.1",
     "contentful": "^9.1.5",
+    "eslint-config-react-app": "^7.0.0",
     "gatsby": "^4.5.3",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^2.9.1",
@@ -34,5 +35,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "sass": "^1.36.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:annika-works/kulturgarten.git",
+  "license": "MIT"
 }
