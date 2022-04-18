@@ -11,10 +11,10 @@ const WerWirSind = () => {
         Die Bude voller <span>Leute</span>.
       </Title>
       <div className="contentSection">
-        <div style={{margin: '0 0 4rem 0', position: 'relative'}}>
-          <img src={Spiral} alt="decoration" className="secondSpiral"/>
-          <img src={WhoImage} alt="the team" style={{width: '600px'}} />
-        </div>
+        <figure>
+          <img src={Spiral} aria-hidden="true" alt="decoration" className="secondSpiral" />
+          <img src={WhoImage} alt="the team" style={{ width: "600px" }} />
+        </figure>
         <Text>
           Wir sind ein bunter Haufen aus Freunden und Freundesfreunden mit
           vielen Talenten, die in der Gemeinschaft die Zukunft sehen für

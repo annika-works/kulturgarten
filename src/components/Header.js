@@ -1,18 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "../../contentful";
 import { useHeader } from "../hooks/use-header";
-import "./Header.module.scss";
+import { Fade as Hamburger } from "hamburger-react";
 
 function Header() {
   const headerData = useHeader();
-  return (
-    <header>
-      <nav>
-        {headerData.links.map((link, i) => (
-          <Link href={link.href} pdf={link.pdf} key={i}>
+  const [isOpen, setOpen] = useState(false);
+
+  const NavLinks = () => (
+    <>
+      {headerData.links.map((link, i) => (
+        <li key={i}>
+          <Link href={link.href} pdf={link.pdf}>
             {link.title}
           </Link>
-        ))}
+        </li>
+      ))}
+    </>
+  );
+
+  const MobileNav = () => (
+    <section aria-label="mobile Navigation" className="mobileNavigation">
+      <nav>
+        <ul className="mobile">
+          <NavLinks />
+        </ul>
+      </nav>
+    </section>
+  );
+
+  return (
+    <header>
+      <nav className="nav">
+        {isOpen && <MobileNav />}
+        <span className="icon">
+          <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
+            direction="right"
+            size={20}
+          />
+        </span>
+        <ul className="desktop">
+          <NavLinks />
+        </ul>
       </nav>
     </header>
   );

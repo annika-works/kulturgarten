@@ -25,10 +25,16 @@ html {
   background: $primary-color;
 }
 
+@mixin bold($width, $color) {
+  -webkit-text-stroke-width: $width;
+  -webkit-text-stroke-color: $color;
+}
+
 h1 {
+  @include bold(0.5px, $primary-color);
   font-size: 16px;
   text-transform: uppercase;
-  background: $primary-color;
+  color: $primary-color;
   padding: 5px 10px;
 }
 
@@ -45,23 +51,112 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  @include bold(1px, black);
 
   @media (min-width: $desktop) {
     font-size: 1.8rem;
   }
 }
 
-h2.hero {
-  max-width: inherit;
-  @media (min-width: $desktop) {
-    max-width: 400px;
-  }
+h4 {
+  font-size: 36px;
+  line-height: 1.1;
+  margin-top: 8rem;
+  margin-bottom: 31px;
+  max-width: $desktop;
 }
 
 span {
   color: $primary-color;
+}
+
+.mobileNavigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $primary-color;
+
+  nav {
+    display: flex;
+  }
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}
+
+nav.nav {
+  display: flex;
+  justify-content: right;
+  width: 100vw;
+  background: #fff;
+  padding: 1rem;
+  position: fixed;
+  z-index: 999;
+
+  span.icon {
+    color: #000;
+  }
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    padding: 4rem 0 2rem 0;
+    justify-content: center;
+    align-items: center;
+
+    span.icon {
+      display: none !important;
+    }
+  }
+}
+
+ul.desktop {
+  justify-content: center;
+  align-items: center;
+  display: none;
+  @media (min-width: $desktop) {
+    display: flex;
+  }
+}
+
+ul.mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 8rem 4rem;
+
+  li {
+    margin-bottom: 40px;
+    font-size: 30px;
+    line-height: 38px;
+  }
+  a {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+nav.nav li {
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 16px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+  a:hover {
+      border-bottom: 2px solid #000;
+    }
+
+  @media (min-width: $desktop) {
+    margin-right: 4rem;
+  }
 }
 
 .wrapper {
@@ -72,15 +167,18 @@ span {
   width: 100vw;
   padding: 2rem 1rem;
 
-  @media (min-width: $desktop) {
+  @media (min-width: $bigScreen) {
     flex-direction: row;
     padding: 4rem;
   }
 }
 
 .start {
-  padding-top: 10rem;
+  padding-top: 6rem;
   padding-bottom: 0;
+  @media (min-width: $desktop) {
+    padding-top: 10rem;
+  }
 }
 
 .startDiv {
@@ -93,7 +191,7 @@ span {
     width: 450px;
 
     img {
-      height:100% !important;
+      height: 100% !important;
     }
   }
 
@@ -133,7 +231,7 @@ span {
 .heart {
   position: absolute;
   left: 10%;
-  top: 7%;
+  top: 2%;
   @media (min-width: $bigScreen) {
     top: 20%;
     left: auto;
@@ -188,18 +286,23 @@ p {
   line-height: 1.4;
 
   @media (min-width: $desktop) {
-    font-size: 22px;
+    font-size: 21px;
   }
 }
 
 .contentSection {
   max-width: $maxWidth;
   text-align: center;
+
+  figure {
+    margin: 0 0 4rem 0;
+    position: relative;
+  }
 }
 
 .footer {
   bottom: 0;
-  background: #b0dc33;
+  background: $primary-color;
   width: 100vw;
   padding: 0.5rem 4rem;
   display: flex;
@@ -221,5 +324,138 @@ p {
 
   @media (min-width: $desktop) {
     width: 150px;
+  }
+}
+
+.blogPageEntry {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px auto;
+
+  @media (min-width: $maxWidth) {
+    flex-direction: row;
+  }
+
+  article,
+  figure {
+    @media (min-width: $maxWidth) {
+      width: 50%;
+    }
+    width: 100%;
+  }
+
+  figure {
+    @media (max-width: $maxWidth) {
+      display: none;
+    }
+    @media (max-width: $desktop) {
+      display: block;
+    }
+
+    img {
+      object-fit: cover;
+      @media (min-width: $desktop) {
+        aspect-ratio: 4 / 3;
+      }
+      @media (min-width: $bigScreen) {
+        aspect-ratio: 16 / 10;
+      }
+    }
+  }
+
+  article {
+    padding: 3rem;
+    background: #f8f9f6;
+
+    time {
+      font-size: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 0.5em 0;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      @include bold(1px, black);
+      letter-spacing: 0.7px;
+      line-height: 2.4;
+      border-bottom: 2px solid black;
+    }
+  }
+}
+
+.blogPageTitle {
+  margin: 8rem 0 1rem 0;
+}
+
+.blogPageDescription {
+  max-width: $desktop;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.blogEntryContent {
+  max-width: $maxWidth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogEntryContent article {
+  @media (min-width: $desktop) {
+    padding: 4rem;
+  }
+  padding: 2rem 5px;
+}
+
+.blogEntryContent header {
+  margin-top: 2rem;
+  text-align: center;
+  @media (min-width: $desktop) {
+    margin-top: 8rem;
+  }
+}
+
+.blogEntryContent h2 {
+  font-size: 36px;
+  line-height: 1.1;
+  margin-bottom: 31px;
+  max-width: $desktop;
+}
+
+.datum {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #696969;
+}
+
+.blogEntryParagraph {
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+
+nav.breadcrumbs {
+  padding: 1rem;
+
+  li {
+    text-decoration: none;
+    display: inline;
+  }
+
+  span {
+    @include bold(0.7px, $primary-color);
+    letter-spacing: 0.05em;
+  }
+  span.blogEntryTitle {
+    color: black;
+    @include bold(0.5px, black);
   }
 }
