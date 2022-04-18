@@ -33,3 +33,17 @@ export const imprintStyling = {
             }
     }
 }
+export const blogEntryContentStyling = {
+    renderNode: {
+           /**
+         * @param node
+         * @param children
+         * @returns {React.ReactNode}
+         */
+            [BLOCKS.PARAGRAPH]: function Paragraph(node, children) {
+                return(
+                    <p className="blogEntryParagraph">{children}</p>
+                )
+            }
+    }
+}

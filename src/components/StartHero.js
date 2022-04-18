@@ -19,8 +19,8 @@ function StartHero() {
         </div>
       </section>
       <section className="wrapper" style={{position: 'relative'}}>
-          <Image src={Spiral} alt="decoration" className="spiral" />
-          <Image src={Heart} alt="decoration" className="heart" />
+          <Image src={Spiral} aria-hidden="true" alt="decoration" className="spiral" />
+          <Image src={Heart} aria-hidden="true" alt="decoration" className="heart" />
           <FullSizeImage>
             <Image src={HeroImage} alt="garden gloves on a bench" />
           </FullSizeImage>

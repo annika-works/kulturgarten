@@ -22,7 +22,7 @@ const Utopie = () => {
         {utopieData.projectEntries.map((entry, i) => (
           <div key={i} className="projectEntry">
             <h3>{entry.title}</h3>
-            <img alt="subline" src={lines[Math.floor(Math.random() * lines.length)]} style={{transform: 'translateY(-25px)'}}/>
+            <img alt="subline" aria-hidden="true" src={lines[Math.floor(Math.random() * lines.length)]} style={{transform: 'translateY(-25px)'}}/>
             {renderRichText(entry.description)}
           </div>
         ))}

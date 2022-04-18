@@ -5,6 +5,7 @@ const blogEntryQuery = `{
             slug
             datum
             titel
+            breadcrumb
             blogfoto {
               title
               file {
