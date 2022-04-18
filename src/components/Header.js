@@ -6,12 +6,16 @@ import { Fade as Hamburger } from "hamburger-react";
 function Header() {
   const headerData = useHeader();
   const [isOpen, setOpen] = useState(false);
+  
+  const closeModal = () => {
+    setOpen(false);
+  }
 
   const NavLinks = () => (
     <>
       {headerData.links.map((link, i) => (
         <li key={i}>
-          <Link href={link.href} pdf={link.pdf}>
+          <Link href={link.href} pdf={link.pdf} onClick={closeModal}>
             {link.title}
           </Link>
         </li>
