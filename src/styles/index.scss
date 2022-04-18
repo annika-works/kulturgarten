@@ -356,6 +356,7 @@ p {
 
     img {
       object-fit: cover;
+      object-position: center;
       @media (min-width: $desktop) {
         aspect-ratio: 4 / 3;
       }
@@ -393,13 +394,22 @@ p {
 }
 
 .blogPageTitle {
-  margin: 8rem 0 1rem 0;
+  margin: 3rem 0 1rem 0;
+  @media (min-width: $desktop) {
+    margin: 8rem 0 1rem 0;
+  }
 }
 
 .blogPageDescription {
   max-width: $desktop;
   text-align: center;
   margin-bottom: 4rem;
+  
+  img {
+    object-fit: cover;
+    object-position: bottom center;
+    aspect-ratio: 16 / 10;
+  }
 }
 
 .blogEntryContent {
