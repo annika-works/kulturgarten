@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 const blogPageTemplate = ({ pageContext }) => {
   const { entries } = pageContext.data;
   const date = datum => new Date(datum).toLocaleDateString("de-DE");
-  console.log(pageContext);
 
   return (
     <>
