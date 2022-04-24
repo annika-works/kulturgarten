@@ -3,6 +3,7 @@ import { Image, Text } from "../../contentful";
 import { Title } from "../components/common/Title";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/common/Seo";
 
 const blogPageTemplate = ({ pageContext }) => {
   const { entries } = pageContext.data;
@@ -10,6 +11,7 @@ const blogPageTemplate = ({ pageContext }) => {
 
   return (
     <>
+      <Seo />
       <Header />
       <section className="wrapper utopie">
         <Title title="Blog" className="blogPageTitle">
@@ -35,7 +37,7 @@ const blogPageTemplate = ({ pageContext }) => {
         ))}
 
       </section>
-      <Footer position='fixed'/>
+      <Footer position='fixed' />
     </>
   );
 };
