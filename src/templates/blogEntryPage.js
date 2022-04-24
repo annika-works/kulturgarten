@@ -17,7 +17,7 @@ const blogEntryPageTemplate = ({ pageContext }) => {
 
   return (
     <>
-      §<Seo />
+      <Seo />
       <Header />
       <section className="wrapper utopie">
         <article className="blogEntryContent">
