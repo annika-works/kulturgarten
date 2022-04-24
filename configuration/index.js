@@ -3,7 +3,7 @@ module.exports = {
     title: `Kulturgarten Pinneberg`,
     description: "",
     author: `Kulturgarten Pinneberg Verein`,
-    siteUrl: `https://www.kulturgarten-pinneberg.de`,
+    siteUrl: process.env.URL || `https://www.kulturgarten-pinneberg.de`,
     keywords: "Garten, Verein, Kulturverein, Pinneberg, Hamburg",
   },
   SITE_LANGUAGE: "de",

@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import { imprintStyling } from "../../contentful";
+import Seo from "../components/common/Seo";
 import { Title } from "../components/common/Title";
 import Footer from "../components/Footer";
 
@@ -10,8 +11,9 @@ const imprintTemplate = ({ pageContext }) => {
 
   return (
     <>
-      <nav style={{position: 'relative'}}>
-        <Link  to={"/"}>
+      <Seo />
+      <nav style={{ position: 'relative' }}>
+        <Link to={"/"}>
           Back
         </Link>
       </nav>

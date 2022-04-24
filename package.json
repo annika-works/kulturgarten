@@ -29,6 +29,7 @@
     "gatsby-plugin-remove-trailing-slashes": "^3.10.0",
     "gatsby-plugin-sass": "^4.10.0",
     "gatsby-plugin-sharp": "^4.9.1",
+    "gatsby-plugin-sitemap": "^5.12.1",
     "gatsby-source-contentful": "^7.3.2",
     "gatsby-source-filesystem": "^4.9.1",
     "hamburger-react": "^2.5.0",
