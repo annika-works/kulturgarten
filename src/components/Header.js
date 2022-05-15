@@ -22,8 +22,8 @@ function Header() {
         </li>
       ))}
       <li>
-        <a href="https://www.instagram.com/kulturgarten_pinneberg/" aria-label="Go to Instagram">
-          <img src={InstagramLogo} alt="" role="presentation" />
+        <a href="https://www.instagram.com/kulturgarten_pinneberg/" aria-label="Gehe zu Instagram">
+          <img src={InstagramLogo} alt="" aria-hidden="true" />
         </a>
       </li>
     </>
@@ -43,7 +43,7 @@ function Header() {
     <header>
       <nav className="nav">
         {isOpen && <MobileNav />}
-        <div className="icon" aria-label="menu">
+        <div className="icon" aria-label="Toggle das Menü">
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}

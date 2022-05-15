@@ -31,12 +31,34 @@ module.exports = {
         flags: `gated`, // only execute the polyfill if the native API is not present
       },
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        resolveSiteUrl: () => SITE_METADATA.siteUrl,
+        createLinkInHead: true,
+        query: `
+          {
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }
+        `,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map((page) => {
+            return { ...page };
+          });
+        },
+      },
+    },
     `gatsby-plugin-remove-trailing-slashes`,
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-image",
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-minify',
-    `gatsby-plugin-sitemap`,
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-minify",
   ],
 };
