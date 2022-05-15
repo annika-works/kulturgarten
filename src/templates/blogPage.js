@@ -3,14 +3,21 @@ import { Image, Text } from "../../contentful";
 import { Title } from "../components/common/Title";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/common/Seo";
 
 const blogPageTemplate = ({ pageContext }) => {
   const { entries } = pageContext.data;
   const date = datum => new Date(datum).toLocaleDateString("de-DE");
-  console.log(pageContext);
+
+  const seo = {
+    title: "Kulturgarten Pinneberg Verein e.V.: Blog",
+    description: "Unser Blog über den Kulturgarten Pinneberg! Erfahre über alle Neuigkeiten, und was sonst noch so im Garten passiert.",
+    ogImage: "http://images.ctfassets.net/36ul82y90g9q/3d4zbFdAuJ4S72GtTm4Q1Z/3f5c2e09cea50e9b6badfd46ced6c902/IMG_7809_websize.jpg"
+  }
 
   return (
     <>
+      <Seo title={seo.title} description={seo.description} ogImage={seo.ogImage}/>
       <Header />
       <section className="wrapper utopie">
         <Title title="Blog" className="blogPageTitle">
