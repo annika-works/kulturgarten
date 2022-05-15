@@ -5,11 +5,11 @@ import {
   Image,
   Text,
 } from "../../contentful";
-import { Title } from "../components/common/Title";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/common/Breadcrumbs";
 import Footer from "../components/Footer";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import Seo from "../components/common/Seo";
 
 const blogEntryPageTemplate = ({ pageContext }) => {
   const { titel, datum, content, blogfoto, slug, breadcrumb } = pageContext.data;
@@ -17,6 +17,7 @@ const blogEntryPageTemplate = ({ pageContext }) => {
 
   return (
     <>
+      <Seo />
       <Header />
       <section className="wrapper utopie">
         <article className="blogEntryContent">
