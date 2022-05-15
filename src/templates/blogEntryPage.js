@@ -12,17 +12,24 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Seo from "../components/common/Seo";
 
 const blogEntryPageTemplate = ({ pageContext }) => {
-  const { titel, datum, content, blogfoto, slug, breadcrumb } = pageContext.data;
+  const { titel, datum, content, blogfoto, slug, breadcrumb } =
+    pageContext.data;
   const date = (datum) => new Date(datum).toLocaleDateString("de-DE");
+
+  const seo = {
+    title: titel,
+    description: "Unser Blog über den Kulturgarten Pinneberg! Erfahre über alle Neuigkeiten, und was sonst noch so im Garten passiert.",
+    ogImage: blogfoto.file.url
+  }
 
   return (
     <>
-      <Seo />
+      <Seo title={seo.title} description={seo.description} ogImage={seo.ogImage}/>
       <Header />
       <section className="wrapper utopie">
         <article className="blogEntryContent">
           <header>
-            <Breadcrumbs titel={breadcrumb} slug={slug}/>
+            <Breadcrumbs titel={breadcrumb} slug={slug} />
             <h2>{titel}</h2>
           </header>
           <FullSizeImage>

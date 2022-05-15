@@ -35,7 +35,7 @@ const NotFoundPage = () => {
         <h1 style={headingStyles}>404</h1>
         <p style={paragraphStyles}>
           Hoppla!{" "}
-          <span role="img" aria-label="Pensive emoji">
+          <span role="img" aria-label="Pensive emoji" alt="">
             😔
           </span>{" "}
           Wir konnten die Seite, die du gesucht hast, leider nicht finden.

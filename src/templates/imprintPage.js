@@ -9,13 +9,17 @@ import Footer from "../components/Footer";
 const imprintTemplate = ({ pageContext }) => {
   const { titel, content } = pageContext.data;
 
+  const seo = {
+    title: `Kulturgarten Pinneberg e.V.: ${titel}`,
+    description: "Das Impressum des Kulturgarten Pinneberg e.V.. Wir verwandeln 1 Hektar verwildertes Land in einen bunten Gemeinschaftsgarten und kreativen Rückzugsort von der Stadt. Kommt vorbei und packt mit an!",
+    ogImage: ''
+  }
+
   return (
     <>
-      <Seo />
-      <nav style={{ position: 'relative' }}>
-        <Link to={"/"}>
-          Back
-        </Link>
+      <Seo title={seo.title} description={seo.description} ogImage={seo.ogImage}/>
+      <nav style={{ position: "relative" }}>
+        <Link to={"/"}>Back</Link>
       </nav>
       <main>
         <section className="wrapper utopie">
