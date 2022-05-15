@@ -5,7 +5,6 @@ import {
   Image,
   Text,
 } from "../../contentful";
-import { Title } from "../components/common/Title";
 import Header from "../components/Header";
 import Breadcrumbs from "../components/common/Breadcrumbs";
 import Footer from "../components/Footer";
