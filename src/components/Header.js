@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Link } from "../../contentful";
 import { useHeader } from "../hooks/use-header";
 import { Fade as Hamburger } from "hamburger-react";
+import InstagramLogo from "../assets/svgs/instagram.svg";
 
 function Header() {
   const headerData = useHeader();
   const [isOpen, setOpen] = useState(false);
-  
+
   const closeModal = () => {
     setOpen(false);
-  }
+  };
 
   const NavLinks = () => (
     <>
@@ -20,6 +21,11 @@ function Header() {
           </Link>
         </li>
       ))}
+      <li>
+        <a href="https://www.instagram.com/kulturgarten_pinneberg/" aria-label="Go to Instagram">
+          <img src={InstagramLogo} alt="" role="presentation" />
+        </a>
+      </li>
     </>
   );
 
@@ -37,14 +43,14 @@ function Header() {
     <header>
       <nav className="nav">
         {isOpen && <MobileNav />}
-        <span className="icon">
+        <div className="icon" aria-label="menu">
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}
             direction="right"
             size={20}
           />
-        </span>
+        </div>
         <ul className="desktop">
           <NavLinks />
         </ul>
