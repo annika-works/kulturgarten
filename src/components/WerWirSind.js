@@ -12,7 +12,7 @@ const WerWirSind = () => {
       </Title>
       <div className="contentSection">
         <figure>
-          <img src={Spiral} aria-hidden="true" alt="decoration" className="secondSpiral" />
+          <img src={Spiral} aria-hidden="true" alt="" className="secondSpiral" />
           <img src={WhoImage} alt="the team" style={{ width: "600px" }} />
         </figure>
         <Text>
