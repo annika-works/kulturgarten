@@ -20,6 +20,7 @@ export default function Seo({ title, description, ogImage }) {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:url" content={`https://${url}${pathname}`} />
+        <meta name="google-site-verification" content="YFAS9CXRiEIYag4CBOBf3H2pephA0QzpziAbtNvy0Lo" />
       </Helmet>
     </>
   );
