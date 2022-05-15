@@ -30,12 +30,12 @@ html {
   -webkit-text-stroke-color: $color;
 }
 
-h1 {
+span.h1 {
   @include bold(0.5px, $primary-color);
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: $primary-color;
-  padding: 5px 10px;
+  padding: 20px;
 }
 
 h2 {
@@ -240,6 +240,10 @@ nav.nav li {
   @media (max-width: $desktop) {
     opacity: 0;
   }
+}
+
+.heroImage {
+  position: relative;
 }
 
 .utopie {

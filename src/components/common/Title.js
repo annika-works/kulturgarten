@@ -3,7 +3,7 @@ import React from "react";
 export const Title = ({title, children, className}) => {
   return (
     <div className={className ? `title ${className}` : 'title'}>
-      <h1>{title}</h1>
+      <span className="h1">{title}</span>
       <h2>
         {children}
       </h2>

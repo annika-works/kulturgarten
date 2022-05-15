@@ -18,11 +18,11 @@ function StartHero() {
           </h2>
         </div>
       </section>
-      <section className="wrapper" style={{position: 'relative'}}>
-          <Image src={Spiral} aria-hidden="true" alt="decoration" className="spiral" />
-          <Image src={Heart} aria-hidden="true" alt="decoration" className="heart" />
+      <section className="wrapper heroImage">
+          <Image src={Spiral} aria-hidden="true" alt="" className="spiral" />
+          <Image src={Heart} aria-hidden="true" alt="" className="heart" />
           <FullSizeImage>
-            <Image src={HeroImage} alt="garden gloves on a bench" />
+            <Image src={HeroImage} alt="Gartenhandschuhe auf einer Bank" />
           </FullSizeImage>
       </section>
     </>
