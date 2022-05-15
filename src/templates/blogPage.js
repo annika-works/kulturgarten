@@ -43,7 +43,7 @@ const blogPageTemplate = ({ pageContext }) => {
         ))}
 
       </section>
-      <Footer position='fixed'/>
+      <Footer position='fixed' />
     </>
   );
 };
