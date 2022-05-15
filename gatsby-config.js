@@ -39,10 +39,8 @@ module.exports = {
         query: `
           {
             allSitePage {
-              edges {
-                node {
-                  path
-                }
+              nodes {
+                path
               }
             }
           }
