@@ -32,12 +32,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
+      resolve: `gatsby-plugin-sitemap`, 
       options: {
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
         createLinkInHead: true,
+        output:'/',
         query: `
           {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
             allSitePage {
               nodes {
                 path
