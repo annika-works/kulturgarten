@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.kulturgarten-pinneberg.de/sitemap/sitemap-index.xml

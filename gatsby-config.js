@@ -2,8 +2,17 @@ const path = require("path");
 const { SITE_METADATA, ACTIVE_ENV, MANIFEST } = require("./configuration");
 require("dotenv").config({ path: `.env.${ACTIVE_ENV}` });
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.kulturgarten-pinneberg.de',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
-  siteMetadata: SITE_METADATA,
+  siteMetadata: { siteUrl },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
@@ -58,6 +67,29 @@ module.exports = {
           });
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.kulturgarten-pinneberg.de',
+        sitemap: 'https://www.kulturgarten-pinneberg.de/sitemap/sitemap-0.xml',
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{userAgent: '*'}]
+          },
+          'branch-deploy': {
+            policy: [{userAgent: '*', disallow: ['/']}],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{userAgent: '*', disallow: ['/']}],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
     },
     `gatsby-plugin-remove-trailing-slashes`,
     "gatsby-plugin-sass",
