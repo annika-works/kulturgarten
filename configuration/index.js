@@ -2,7 +2,7 @@ module.exports = {
   SITE_METADATA: {
     title: `Kulturgarten Pinneberg e.V.`,
     description: "Wir verwandeln 1 Hektar verwildertes Land in einen bunten Gemeinschaftsgarten und kreativen Rückzugsort von der Stadt. Kommt vorbei und packt mit an!",
-    author: `Kulturgarten Pinneberg Verein`,
+    author: `Kulturgarten Pinneberg e.V.`,
     siteUrl: process.env.URL || `https://www.kulturgarten-pinneberg.de`,
     keywords: "Garten, Verein, Kulturverein, Pinneberg, Hamburg",
   },
