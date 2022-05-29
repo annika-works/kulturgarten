@@ -433,6 +433,9 @@ p {
 .blogEntryContent header {
   margin-top: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: $desktop;
   @media (min-width: $desktop) {
     margin-top: 8rem;
   }
@@ -441,10 +444,12 @@ p {
 .blogEntryContent h2 {
   font-size: 36px;
   line-height: 1.1;
-  margin-bottom: 31px;
   text-transform: none;
-  max-width: $desktop;
-  text-transform: none;
+}
+
+.blogEntryContent header p {
+  margin: 0.5rem auto 2rem auto;
+  font-size: 18px;
 }
 
 .datum {
@@ -474,4 +479,10 @@ nav.breadcrumbs {
     color: black;
     @include bold(0.5px, black);
   }
+}
+
+.inlineLink {
+  @include bold(0.5px, black);
+
+  border-bottom: 2px solid #000;
 }

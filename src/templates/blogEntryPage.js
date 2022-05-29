@@ -12,7 +12,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Seo from "../components/common/Seo";
 
 const blogEntryPageTemplate = ({ pageContext }) => {
-  const { titel, datum, content, blogfoto, slug, breadcrumb } =
+  const { titel, datum, content, blogfoto, slug, breadcrumb, kurzbeschreibung } =
     pageContext.data;
   const date = (datum) => new Date(datum).toLocaleDateString("de-DE");
 
@@ -31,6 +31,7 @@ const blogEntryPageTemplate = ({ pageContext }) => {
           <header>
             <Breadcrumbs titel={breadcrumb} slug={slug} />
             <h2>{titel}</h2>
+            <p>{kurzbeschreibung}</p>
           </header>
           <FullSizeImage>
             <Image src={blogfoto.file.url} alt={blogfoto.title} />
