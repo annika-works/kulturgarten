@@ -24,7 +24,7 @@ const blogPageTemplate = ({ pageContext }) => {
         </Title>
         <Text className="blogPageDescription">
           In diesem Blog erzählen wir von unseren bisherigen Erfolgen, Arbeiten
-          und Projekten, die im Kontext des KuGaPi Projektes so anfallen.
+          und Projekten, die im Kontext des KuGaPi Projektes anfallen.
         </Text>
 
         {entries.map((entry, i) => (
