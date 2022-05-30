@@ -18,7 +18,7 @@ const blogEntryPageTemplate = ({ pageContext }) => {
 
   const seo = {
     title: titel,
-    description: "Unser Blog über den Kulturgarten Pinneberg! Erfahre über alle Neuigkeiten, und was sonst noch so im Garten passiert.",
+    description: kurzbeschreibung,
     ogImage: blogfoto.file.url
   }
 
@@ -38,7 +38,7 @@ const blogEntryPageTemplate = ({ pageContext }) => {
           </FullSizeImage>
           <article>
             <Text className="datum">
-              <time aria-label="date of release">{date(datum)}</time>
+              <time dateTime={datum} aria-label="date of release">{date(datum)}</time>
             </Text>
             {renderRichText(content, blogEntryContentStyling)}
           </article>
