@@ -7,7 +7,7 @@ function Footer({position}) {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="footer" style={{ position: positioning}}>
-      <Link to='/impressum'>&#169; {currentYear} Kulturgarten Pinneberg Verein e.V.</Link>
+      <Link to='/impressum'>&#169; {currentYear} Kulturgarten Pinneberg e.V.</Link>
     </footer>
   );
 }
