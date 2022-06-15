@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "../../contentful";
 import { Title } from "./common/Title";
-import WhoImage from "../assets/images/polaroid_team.jpg";
+import WhoImage from "../assets/images/polaroid_team.webp";
 import Spiral from "../assets/svgs/spiral_02.svg";
 
 const WerWirSind = () => {
