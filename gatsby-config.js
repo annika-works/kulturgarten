@@ -13,6 +13,7 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: { siteUrl },
+  trailingSlash: 'always',
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,

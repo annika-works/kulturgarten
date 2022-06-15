@@ -5,7 +5,7 @@ const Breadcrumbs = ({slug, titel}) => {
     <nav className="breadcrumbs">
       <ol>
         <li>
-          <a href="/blog">
+          <a href="/blog/">
             <span>Blog</span>
           </a>
         </li>
