@@ -28,7 +28,5 @@ export default function Seo({ title, description, ogImage }) {
 
 Seo.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.shape({
-    description: PropTypes.string,
-  }),
+  description: PropTypes.string,
 };
