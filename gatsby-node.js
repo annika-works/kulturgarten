@@ -15,7 +15,7 @@ function getPageConfig(type, edge) {
     switch (type) {
         case 'impressum':
             return {
-                path: '/impressum',
+                path: '/impressum/',
                 component: slash(imprint),
                 context: {
                     id: edge.node.id,
@@ -26,7 +26,7 @@ function getPageConfig(type, edge) {
             }
         case 'blog':
             return {
-                path: '/blog',
+                path: '/blog/',
                 component: slash(blog),
                 context: {
                     id: edge.node.id,
