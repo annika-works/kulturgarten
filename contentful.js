@@ -59,8 +59,16 @@ export const blogEntryContentStyling = {
             // rel={`${data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
         >
             {node[0]}
-            {/* {console.log(node)} */}
         </a>
     ),
+    [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
+      return (
+        <img
+          src={`https://${data.target.file.url}`}
+          alt={data.target.title}
+          className="rawImage"
+        />
+      );
+    },
   },
 };
