@@ -66,6 +66,7 @@ export const blogEntryContentStyling = {
         <img
           src={`https://${data.target.file.url}`}
           alt={data.target.title}
+          className="rawImage"
         />
       );
     },
