@@ -1,5 +1,5 @@
 import React from "react";
-import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 
 export const Text = ({ children, className }) => (
   <p className={className}>{children}</p>
@@ -42,6 +42,9 @@ export const imprintStyling = {
   },
 };
 export const blogEntryContentStyling = {
+  renderMark: {
+    [MARKS.BOLD]: text => <span className="boldRawLink">{text}</span>,
+  },
   renderNode: {
     /**
      * @param node
