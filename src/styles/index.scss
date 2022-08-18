@@ -287,7 +287,7 @@ nav.nav li {
 
 p {
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.5;
 
   @media (min-width: $desktop) {
     font-size: 21px;
@@ -479,6 +479,11 @@ nav.breadcrumbs {
     color: black;
     @include bold(0.5px, black);
   }
+}
+
+.boldRawLink {
+  @include bold(0.5px, black);
+  color: black;
 }
 
 .inlineLink {
