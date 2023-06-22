@@ -2,6 +2,7 @@ const path = require('path');
 const imprintQuery = require('./graphql/imprintPage');
 const blogQuery = require('./graphql/blogPage');
 const blogEntryQuery = require('./graphql/blogEntryPage');
+const eventsQuery = require('./graphql/eventsPage');
 const slash = require('slash');
 const chalk = require('chalk');
 const { ACTIVE_ENV } = require('./configuration');
@@ -11,6 +12,7 @@ function getPageConfig(type, edge) {
     const imprint = path.resolve(`src/templates/imprintPage.js`);
     const blog = path.resolve(`src/templates/blogPage.js`);
     const blogEntry = path.resolve(`src/templates/blogEntryPage.js`);
+    const events = path.resolve(`src/templates/eventsPage.js`);
 
     switch (type) {
         case 'impressum':
@@ -46,6 +48,17 @@ function getPageConfig(type, edge) {
                     name: edge.node.title,
                 }
             }
+        case 'events':
+            return {
+                path: '/veranstaltungen/',
+                component: slash(events),
+                context: {
+                    id: edge.node.id,
+                    data: { ...edge.node },
+                    lug: edge.node.slug,
+                    name: edge.node.title,
+               }
+            }
         default: 
             return {};
     }
@@ -55,36 +68,22 @@ function getPageConfig(type, edge) {
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
 
-    const imprintPromise = graphql(imprintQuery).then(result => {
-        if(result.errors) {
-            throw result.errors;
-        }
+    const createPagePromise = async (query, string, queryResult) => {
+      await graphql(query).then(result => {
+        if(result.errors) throw result.errors;
 
-        result.data.allContentfulImpressum.edges.forEach(edge => {
-            createPage(getPageConfig('impressum', edge));
-        });
-    })
-    const blogPagePromise = graphql(blogQuery).then(result => {
-        if(result.errors) {
-            throw result.errors;
-        }
+        result.data[queryResult].edges.forEach(edge => {
+            createPage(getPageConfig(string, edge));
+        })
+      })
+    }
 
-        result.data.allContentfulBlogEntries.edges.forEach(edge => {
-            createPage(getPageConfig('blog', edge));
-        });
-    })
-    const blogEntryPagePromise = graphql(blogEntryQuery).then(result => {
-        if(result.errors) {
-            throw result.errors;
-        }
+    const imprintPromise = createPagePromise(imprintQuery, 'impressum', 'allContentfulImpressum' );
+    const blogPagePromise = createPagePromise(blogQuery, 'blog', 'allContentfulBlogEntries' );
+    const blogEntryPagePromise = createPagePromise(blogEntryQuery, 'blogEntry', 'allContentfulBlogEntry' );
+    const eventsPagePromise = createPagePromise(eventsQuery, 'events', 'allContentfulVeranstaltungen' );
 
-        result.data.allContentfulBlogEntry.edges.forEach(edge => {
-            console.log(edge.node.slug, 'edge');
-            createPage(getPageConfig('blogEntry', edge));
-        });
-    })
-
-    await Promise.all([imprintPromise, blogPagePromise, blogEntryPagePromise]);
+    await Promise.all([imprintPromise, blogPagePromise, blogEntryPagePromise, eventsPagePromise]);
 };
 
 exports.onPreInit = () => {

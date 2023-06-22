@@ -5,6 +5,7 @@ $primary-color: #b0dc33;
 $desktop: 768px;
 $bigScreen: 1120px;
 $maxWidth: 980px;
+$textWidth: 600px;
 
 body {
   font-family: "Ramona", Avenir;
@@ -31,10 +32,10 @@ html {
 }
 
 span.h1 {
-  @include bold(0.5px, $primary-color);
-  font-size: 18px;
+  @include bold(0.5px, black);
+  font-size: 16px;
   text-transform: uppercase;
-  color: $primary-color;
+  color: black;
   padding: 20px;
 }
 
@@ -494,4 +495,61 @@ nav.breadcrumbs {
 
 .rawImage {
   margin: 1rem auto 2rem auto;
+}
+
+.programTable {
+  margin: 5em 0;
+
+  &__row {
+    border-bottom: 1px solid black;
+  
+    td {
+      padding: 0.5em 1em 0.5em 0;
+      font-size: 22px;
+      @include bold(0.5px, black);
+    }
+  
+    &__title{
+      text-transform: uppercase;
+    }
+  }
+}
+
+.filmArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__img {
+    width: $maxWidth;
+    max-height: 290px;
+    margin: 0 auto;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: $textWidth;
+    margin: 2.5em 0;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    -webkit-text-stroke: inherit;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__content {
+    max-width: $textWidth;
+  }
+
+  &__extras {
+    @include bold(0.5px, black);
+    font-size: 1em;
+    width: 158px;
+    line-height: 1.4;
+  }
 }
