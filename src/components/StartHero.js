@@ -10,7 +10,7 @@ function StartHero() {
     <>
       <section className="wrapper start">
         <div className="startDiv">
-          <Image src={Illustration} alt="flowers" />
+          <Image src={Illustration} alt="" />
         </div>
         <div className="startDiv">
           <h2 className="hero">
