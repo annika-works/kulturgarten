@@ -1,7 +1,12 @@
 @import "./base.css";
 @import "./fonts.scss";
 
+/* colors */
 $primary-color: #b0dc33;
+$yellow: #e1f500;
+$purple: #6f3ef9;
+
+/*screens*/
 $desktop: 768px;
 $bigScreen: 1120px;
 $maxWidth: 980px;
@@ -40,6 +45,16 @@ html {
   }
 }
 
+@mixin h3() {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  @include bold(1px, black);
+
+  @media (min-width: $desktop) {
+    font-size: 1.8rem;
+  }
+}
+
 span.h1 {
   @include bold(0.5px, black);
   font-size: 16px;
@@ -54,13 +69,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  @include bold(1px, black);
-
-  @media (min-width: $desktop) {
-    font-size: 1.8rem;
-  }
+  @include h3();
 }
 
 h4 {
@@ -515,7 +524,6 @@ nav.breadcrumbs {
       @media (min-width: $desktop) {
         font-size: 1.4em;
       }
-
     }
 
     &__title {
@@ -578,5 +586,87 @@ nav.breadcrumbs {
     @media (min-width: $desktop) {
       width: 158px;
     }
+  }
+}
+
+.kalender {
+  width: 680px;
+  text-align: center;
+  margin-top: 2.5em;
+  text-transform: uppercase;
+
+  &__caption {
+    @include h3();
+    @include bold(0.5px, black);
+  }
+
+  &__weekdays {
+    @include bold(0.5px, black);
+  }
+
+  &__weekday {
+    padding: 1em;
+  }
+
+  &__tag {
+    padding: 1em;
+  }
+
+  &__legend {
+    width: 680px;
+    
+    
+    ::before {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+    
+    :first-child::before {
+      background: $yellow;
+    }
+    :nth-child(2)::before {
+      background: $purple;
+    }
+    :last-child::before {
+      background: $primary-color;
+    }
+    
+    p {
+      @include bold(0.5px, black);
+      font-size: 1em;
+      line-height: 1.4;
+    }
+  }
+
+  .garten::before {
+    content: "";
+    position: absolute;
+    background: $yellow;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-8px, -8px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+
+  .cinema {
+    color: white;
+    @include bold(0.5px, white);
+  }
+
+  .cinema::before {
+    content: "";
+    position: absolute;
+    background-color: $purple;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-8px, -8px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
   }
 }
