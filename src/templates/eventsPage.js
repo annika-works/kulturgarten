@@ -16,7 +16,6 @@ const eventsPageTemplate = ({ pageContext }) => {
     ogImage:
       "http://images.ctfassets.net/36ul82y90g9q/3d4zbFdAuJ4S72GtTm4Q1Z/3f5c2e09cea50e9b6badfd46ced6c902/IMG_7809_websize.jpg",
   };
-  console.log(filme, "entries");
   return (
     <>
       <Seo
