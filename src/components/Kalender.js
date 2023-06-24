@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Title } from "./common/Title";
-import Arrow from "../assets/svgs/spritesheet";
+import Arrow from "./common/spritesheet";
 import { Text } from "../../contentful";
 
 const Kalender = ({ data }) => {
