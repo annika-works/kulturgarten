@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Title } from "./common/Title";
 import Arrow from "../assets/svgs/spritesheet";
+import { Text } from "../../contentful";
 
 const Kalender = ({ data }) => {
   const weekdays = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
@@ -99,25 +100,33 @@ const Kalender = ({ data }) => {
 
   return (
     <section className="wrapper utopie">
-      <Title title="Kalender" className="blogPageTitle">Events</Title>
+      <Title title="Kalender" className="blogPageTitle">
+        Events
+      </Title>
+
+      <Text className="subtitle">
+        Wir halten diesen Kalender so aktuell wie möglich, planen jedoch nicht
+        alle Events am Anfang des Jahres, also schaut gerne öfters mal vorbei!
+        Gartentage werden monatlich aktualisiert. 
+      </Text>
 
       <table className="kalender">
-        <caption className="kalender__caption">{month}</caption>
+        <caption className="kalender__caption" aria-live="polite">{month}</caption>
         <thead>
           <tr className="kalender__weekdays">{weekdaysNodes}</tr>
         </thead>
         <tbody>{tBodyNodes}</tbody>
       </table>
       <div className="kalender__legend">
-        <p className="kalender__legendItem">Gartentage</p>
-        <p className="kalender__legendItem">Freiluftkino</p>
-        <p className="kalender__legendItem">Café</p>
+        <Text className="kalender__legendItem">Gartentage</Text>
+        <Text className="kalender__legendItem">Freiluftkino</Text>
+        <Text className="kalender__legendItem">Café</Text>
       </div>
       <div className="kalender__controls">
-        <button className={leftButtonStyle} onClick={handleOnLeftClick}>
+        <button aria-label="Nächster Monat" className={leftButtonStyle} onClick={handleOnLeftClick}>
           <Arrow />
         </button>
-        <button className={rightButtonStyle} onClick={handleOnRightClick}>
+        <button aria-label="Voriger Monat" className={rightButtonStyle} onClick={handleOnRightClick}>
           <Arrow />
         </button>
       </div>

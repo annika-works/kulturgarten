@@ -2,8 +2,9 @@
 @import "./fonts.scss";
 
 /* colors */
-$lime: #b0dc33;
 $yellow: #e1f500;
+$lime: #b0dc33;
+$green: #01493B;
 $purple: #6f3ef9;
 $dark-purple: #432595;
 
@@ -419,7 +420,7 @@ p {
   }
 }
 
-.blogPageDescription {
+.subtitle {
   max-width: $desktop;
   text-align: center;
   margin-bottom: 4rem;
@@ -639,6 +640,15 @@ nav.breadcrumbs {
     transform: rotate(180deg);
   }
 
+  @mixin blob($width, $height, $position) {
+    content: "";
+    width: $width;
+    height: $height;
+    position: $position;
+    border-radius: 50%;
+    z-index: -1;
+  } 
+
   &__legend {
     max-width: 680px;
     display: flex;
@@ -651,23 +661,20 @@ nav.breadcrumbs {
     }
 
     ::before {
-      content: "";
+      @include blob(15px, 15px, relative);
       display: inline-block;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
       margin-right: 11px;
       transform: translateY(2px);
     }
 
     :first-child::before {
-      background: $yellow;
+      background-color: $yellow;
     }
     :nth-child(2)::before {
-      background: $purple;
+      background-color: $purple;
     }
     :last-child::before {
-      background: $lime;
+      background-color: $green;
     }
   }
 
@@ -678,41 +685,33 @@ nav.breadcrumbs {
   }
 
   .garten::before {
-    content: "";
-    position: absolute;
-    background: $yellow;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    z-index: -1;
-    transform: translate(-8px, -8px)
+    @include blob(35px, 35px, absolute);
+    background-color: $yellow;
+    transform: translate(-10px, -10px)
       skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
-  .cinema {
+  .cinema, .cafe {
     color: white;
     @include bold(0.5px, white);
   }
 
   .cinema::before {
-    content: "";
-    position: absolute;
+    @include blob(35px, 35px, absolute);
     background-color: $purple;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    z-index: -1;
-    transform: translate(-8px, -8px)
+    transform: translate(-10px, -10px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+
+  .cafe::before {
+    @include blob(35px, 35px, absolute);
+    background-color: $green;
+    transform: translate(-10px, -10px)
       skew((random() * 2) + deg, (random() * 2) + deg);
   }
 }
 
-.disabled {
-  svg path {
-    fill: #00000040;
-  }
-}
-
+.disabled,
 button.disabled:hover {
   svg path {
     fill: #00000040;
