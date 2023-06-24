@@ -2,9 +2,10 @@
 @import "./fonts.scss";
 
 /* colors */
-$primary-color: #b0dc33;
+$lime: #b0dc33;
 $yellow: #e1f500;
 $purple: #6f3ef9;
+$dark-purple: #432595;
 
 /*screens*/
 $desktop: 768px;
@@ -23,12 +24,12 @@ html {
 ::-moz-selection {
   /* Code for Firefox */
   color: black;
-  background: $primary-color;
+  background: $lime;
 }
 
 ::selection {
   color: black;
-  background: $primary-color;
+  background: $lime;
 }
 
 @mixin bold($width, $color) {
@@ -81,7 +82,7 @@ h4 {
 }
 
 span {
-  color: $primary-color;
+  color: $lime;
 }
 
 .mobileNavigation {
@@ -90,7 +91,7 @@ span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: $primary-color;
+  background: $lime;
 
   nav {
     display: flex;
@@ -320,7 +321,7 @@ p {
 
 .footer {
   bottom: 0;
-  background: $primary-color;
+  background: $lime;
   width: 100vw;
   padding: 0.5rem 4rem;
   display: flex;
@@ -486,7 +487,7 @@ nav.breadcrumbs {
   }
 
   span {
-    @include bold(0.7px, $primary-color);
+    @include bold(0.7px, $lime);
     letter-spacing: 0.05em;
   }
   span.blogEntryTitle {
@@ -590,10 +591,14 @@ nav.breadcrumbs {
 }
 
 .kalender {
-  width: 680px;
+  max-width: 680px;
   text-align: center;
   margin-top: 2.5em;
   text-transform: uppercase;
+
+  @media (min-width: $desktop) {
+    width: 680px;
+  }
 
   &__caption {
     @include h3();
@@ -612,18 +617,49 @@ nav.breadcrumbs {
     padding: 1em;
   }
 
+  &__controls {
+    display: flex;
+    flex-direction: row;
+
+    button {
+      background: none;
+      border: none;
+      display: flex;
+      width: 60px;
+
+    &:hover {
+      svg path {
+        fill: $lime;
+      }
+    }
+    }
+  }
+
+  &__leftArrow {
+    transform: rotate(180deg);
+  }
+
   &__legend {
-    width: 680px;
-    
-    
+    max-width: 680px;
+    display: flex;
+    gap: 20px;
+    padding: 1em 0;
+
+    @media (min-width: $desktop) {
+      width: 680px;
+      padding: 1em 2.5em;
+    }
+
     ::before {
       content: "";
       display: inline-block;
       width: 15px;
       height: 15px;
       border-radius: 50%;
+      margin-right: 11px;
+      transform: translateY(2px);
     }
-    
+
     :first-child::before {
       background: $yellow;
     }
@@ -631,14 +667,14 @@ nav.breadcrumbs {
       background: $purple;
     }
     :last-child::before {
-      background: $primary-color;
+      background: $lime;
     }
-    
-    p {
-      @include bold(0.5px, black);
-      font-size: 1em;
-      line-height: 1.4;
-    }
+  }
+
+  &__legendItem {
+    @include bold(0.5px, black);
+    font-size: 1em;
+    line-height: 1.4;
   }
 
   .garten::before {
