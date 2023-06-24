@@ -22,7 +22,7 @@ const blogPageTemplate = ({ pageContext }) => {
         <Title title="Blog" className="blogPageTitle">
           Willkommen im <span>Projekt</span>!
         </Title>
-        <Text className="blogPageDescription">
+        <Text className="subtitle">
           In diesem Blog erzählen wir von unseren bisherigen Erfolgen, Arbeiten
           und Projekten, die im Kontext des KuGaPi Projektes anfallen.
         </Text>

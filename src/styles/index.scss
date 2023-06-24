@@ -1,7 +1,14 @@
 @import "./base.css";
 @import "./fonts.scss";
 
-$primary-color: #b0dc33;
+/* colors */
+$yellow: #e1f500;
+$lime: #b0dc33;
+$green: #01493B;
+$purple: #6f3ef9;
+$dark-purple: #432595;
+
+/*screens*/
 $desktop: 768px;
 $bigScreen: 1120px;
 $maxWidth: 980px;
@@ -18,12 +25,12 @@ html {
 ::-moz-selection {
   /* Code for Firefox */
   color: black;
-  background: $primary-color;
+  background: $lime;
 }
 
 ::selection {
   color: black;
-  background: $primary-color;
+  background: $lime;
 }
 
 @mixin bold($width, $color) {
@@ -37,6 +44,16 @@ html {
 
   @media (min-width: $desktop) {
     font-size: 3.5rem;
+  }
+}
+
+@mixin h3() {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  @include bold(1px, black);
+
+  @media (min-width: $desktop) {
+    font-size: 1.8rem;
   }
 }
 
@@ -54,13 +71,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  @include bold(1px, black);
-
-  @media (min-width: $desktop) {
-    font-size: 1.8rem;
-  }
+  @include h3();
 }
 
 h4 {
@@ -72,7 +83,7 @@ h4 {
 }
 
 span {
-  color: $primary-color;
+  color: $lime;
 }
 
 .mobileNavigation {
@@ -81,7 +92,7 @@ span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: $primary-color;
+  background: $lime;
 
   nav {
     display: flex;
@@ -311,7 +322,7 @@ p {
 
 .footer {
   bottom: 0;
-  background: $primary-color;
+  background: $lime;
   width: 100vw;
   padding: 0.5rem 4rem;
   display: flex;
@@ -409,7 +420,7 @@ p {
   }
 }
 
-.blogPageDescription {
+.subtitle {
   max-width: $desktop;
   text-align: center;
   margin-bottom: 4rem;
@@ -477,7 +488,7 @@ nav.breadcrumbs {
   }
 
   span {
-    @include bold(0.7px, $primary-color);
+    @include bold(0.7px, $lime);
     letter-spacing: 0.05em;
   }
   span.blogEntryTitle {
@@ -515,7 +526,6 @@ nav.breadcrumbs {
       @media (min-width: $desktop) {
         font-size: 1.4em;
       }
-
     }
 
     &__title {
@@ -578,5 +588,132 @@ nav.breadcrumbs {
     @media (min-width: $desktop) {
       width: 158px;
     }
+  }
+}
+
+.kalender {
+  max-width: 680px;
+  text-align: center;
+  margin-top: 2.5em;
+  text-transform: uppercase;
+
+  @media (min-width: $desktop) {
+    width: 680px;
+  }
+
+  &__caption {
+    @include h3();
+    @include bold(0.5px, black);
+  }
+
+  &__weekdays {
+    @include bold(0.5px, black);
+  }
+
+  &__weekday {
+    padding: 1em;
+  }
+
+  &__tag {
+    padding: 1em;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: row;
+
+    button {
+      background: none;
+      border: none;
+      display: flex;
+      width: 60px;
+
+      &:hover {
+        svg path {
+          fill: $lime;
+        }
+      }
+    }
+  }
+
+  &__leftArrow {
+    transform: rotate(180deg);
+  }
+
+  @mixin blob($width, $height, $position) {
+    content: "";
+    width: $width;
+    height: $height;
+    position: $position;
+    border-radius: 50%;
+    z-index: -1;
+  } 
+
+  &__legend {
+    max-width: 680px;
+    display: flex;
+    gap: 20px;
+    padding: 1em 0;
+
+    @media (min-width: $desktop) {
+      width: 680px;
+      padding: 1em 2.5em;
+    }
+
+    ::before {
+      @include blob(15px, 15px, relative);
+      display: inline-block;
+      margin-right: 11px;
+      transform: translateY(2px);
+    }
+
+    :first-child::before {
+      background-color: $yellow;
+    }
+    :nth-child(2)::before {
+      background-color: $purple;
+    }
+    :last-child::before {
+      background-color: $green;
+    }
+  }
+
+  &__legendItem {
+    @include bold(0.5px, black);
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .garten::before {
+    @include blob(35px, 35px, absolute);
+    background-color: $yellow;
+    transform: translate(-10px, -10px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+
+  .cinema, .cafe {
+    color: white;
+    @include bold(0.5px, white);
+  }
+
+  .cinema::before {
+    @include blob(35px, 35px, absolute);
+    background-color: $purple;
+    transform: translate(-10px, -10px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+
+  .cafe::before {
+    @include blob(35px, 35px, absolute);
+    background-color: $green;
+    transform: translate(-10px, -10px)
+      skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+}
+
+.disabled,
+button.disabled:hover {
+  svg path {
+    fill: #00000040;
   }
 }
