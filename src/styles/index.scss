@@ -627,11 +627,11 @@ nav.breadcrumbs {
       display: flex;
       width: 60px;
 
-    &:hover {
-      svg path {
-        fill: $lime;
+      &:hover {
+        svg path {
+          fill: $lime;
+        }
       }
-    }
     }
   }
 
@@ -704,5 +704,17 @@ nav.breadcrumbs {
     z-index: -1;
     transform: translate(-8px, -8px)
       skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+}
+
+.disabled {
+  svg path {
+    fill: #00000040;
+  }
+}
+
+button.disabled:hover {
+  svg path {
+    fill: #43259540;
   }
 }
