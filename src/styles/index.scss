@@ -4,7 +4,7 @@
 /* colors */
 $yellow: #e1f500;
 $lime: #b0dc33;
-$green: #01493B;
+$green: #01493b;
 $purple: #6f3ef9;
 $dark-purple: #432595;
 
@@ -647,7 +647,7 @@ nav.breadcrumbs {
     position: $position;
     border-radius: 50%;
     z-index: -1;
-  } 
+  }
 
   &__legend {
     max-width: 680px;
@@ -684,6 +684,19 @@ nav.breadcrumbs {
     line-height: 1.4;
   }
 
+  &__gartentageLegend {
+    @include bold(0.5px, black);
+    font-size: 1em;
+    line-height: 1.4;
+    padding: 0;
+    transform: translateY(-10px);
+    font-size: 14px;
+    @media (min-width: $desktop) {
+      width: 680px;
+      padding: 0 2.5em;
+    }
+  }
+
   .garten::before {
     @include blob(35px, 35px, absolute);
     background-color: $yellow;
@@ -691,7 +704,8 @@ nav.breadcrumbs {
       skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
-  .cinema, .cafe {
+  .cinema,
+  .cafe {
     color: white;
     @include bold(0.5px, white);
   }
