@@ -57,6 +57,15 @@ html {
   }
 }
 
+@mixin blob($width, $height, $position) {
+  content: "";
+  width: $width;
+  height: $height;
+  position: $position;
+  border-radius: 50%;
+  z-index: -1;
+}
+
 span.h1 {
   @include bold(0.5px, black);
   font-size: 16px;
@@ -616,6 +625,27 @@ nav.breadcrumbs {
 
   &__tag {
     padding: 1em;
+
+    span {
+      @include blob(20px, 20px, absolute);
+    }
+
+    /* one item */
+    span:only-child {
+      transform: translate(20px, -3px)
+        skew((random() * 2) + deg, (random() * 2) + deg);
+    }
+
+    // /* two items */
+    span:first-child:nth-last-child(2) {
+      transform: translate(42px, -3px)
+        skew((random() * 2) + deg, (random() * 2) + deg);
+    }
+
+    span:first-child:nth-last-child(2) ~ span {
+      transform: translate(20px, -3px)
+        skew((random() * 2) + deg, (random() * 2) + deg);
+    }
   }
 
   &__controls {
@@ -638,15 +668,6 @@ nav.breadcrumbs {
 
   &__leftArrow {
     transform: rotate(180deg);
-  }
-
-  @mixin blob($width, $height, $position) {
-    content: "";
-    width: $width;
-    height: $height;
-    position: $position;
-    border-radius: 50%;
-    z-index: -1;
   }
 
   &__legend {
@@ -697,31 +718,29 @@ nav.breadcrumbs {
     }
   }
 
-  .garten::before {
-    @include blob(35px, 35px, absolute);
+  .garten {
     background-color: $yellow;
-    transform: translate(-10px, -10px)
-      skew((random() * 2) + deg, (random() * 2) + deg);
+    // transform: translate(-10px, -10px)
+    //   skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
-  .cinema,
-  .cafe {
+  .white {
     color: white;
     @include bold(0.5px, white);
   }
 
-  .cinema::before {
-    @include blob(35px, 35px, absolute);
+  .cinema {
+    // @include blob(35px, 35px, absolute);
     background-color: $purple;
-    transform: translate(-10px, -10px)
-      skew((random() * 2) + deg, (random() * 2) + deg);
+    // transform: translate(-10px, -10px)
+    //   skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
-  .cafe::before {
-    @include blob(35px, 35px, absolute);
+  .cafe {
+    // @include blob(35px, 35px, absolute);
     background-color: $green;
-    transform: translate(-10px, -10px)
-      skew((random() * 2) + deg, (random() * 2) + deg);
+    // transform: translate(-10px, -10px)
+    //   skew((random() * 2) + deg, (random() * 2) + deg);
   }
 }
 

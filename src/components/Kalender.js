@@ -36,16 +36,6 @@ const Kalender = ({ data }) => {
   const cinemadays = filterDataByEventType("cinema");
   const cafedays = filterDataByEventType("cafe");
 
-  const addCalendarClasses = (chunkBit) => {
-    if (gardendays.includes(chunkBit)) {
-      return "kalender__tag garten";
-    } else if (cinemadays.includes(chunkBit)) {
-      return "kalender__tag cinema";
-    } else if (cafedays.includes(chunkBit)) {
-      return "kalender__tag cafe";
-    }
-    return "kalender__tag";
-  };
 
   // nodes
   const weekdaysNodes = weekdays.map((weekday, _) => (
@@ -62,7 +52,10 @@ const Kalender = ({ data }) => {
     tBodyNodes.push(
       <tr key={Math.random()}>
         {chunk.map((chunkBit, _) => (
-          <td key={Math.random() + _} className={addCalendarClasses(chunkBit)}>
+          <td key={Math.random() + _} className="kalender__tag">
+            {gardendays.includes(chunkBit) && <span className="garten" alt="Gartentagtermin"></span>}
+            {cinemadays.includes(chunkBit) && <span className="cinema" alt="Kinotermin"></span>}
+            {cafedays.includes(chunkBit) && <span className="cafe" alt="Cafetermin"></span>}
             {chunkBit}
           </td>
         ))}
@@ -123,7 +116,9 @@ const Kalender = ({ data }) => {
         <Text className="kalender__legendItem">Freiluftkino</Text>
         <Text className="kalender__legendItem">Café</Text>
       </div>
-      <p className="kalender__gartentageLegend">Gartentage donnerstags von 10 - 17 Uhr, samstags von 13 - 17 Uhr</p>
+      <p className="kalender__gartentageLegend">
+        Gartentage donnerstags von 10 - 17 Uhr, samstags von 13 - 17 Uhr
+      </p>
       <div className="kalender__controls">
         <button
           aria-label="Nächster Monat"
