@@ -123,7 +123,7 @@ const Kalender = ({ data }) => {
         <Text className="kalender__legendItem">Freiluftkino</Text>
         <Text className="kalender__legendItem">Café</Text>
       </div>
-      <p className="kalender__gartentageLegend">Gartentage donnerstags von 10 - 17 Uhr, samstags von 10 - 13 Uhr</p>
+      <p className="kalender__gartentageLegend">Gartentage donnerstags von 10 - 17 Uhr, samstags von 13 - 17 Uhr</p>
       <div className="kalender__controls">
         <button
           aria-label="Nächster Monat"
