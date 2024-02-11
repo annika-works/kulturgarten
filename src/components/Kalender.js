@@ -20,8 +20,9 @@ const Kalender = ({ data }) => {
   ];
 
   const [month, setMonth] = useState(months[new Date().getMonth()]);
-  const firstDayOfTheMonth = new Date(2023, months.indexOf(month), 1).getDay();
-  const daysInAMonth = new Date(2023, months.indexOf(month) + 1, 0).getDate();
+  const [year, setYear] = useState(new Date().getFullYear());
+  const firstDayOfTheMonth = new Date(year, months.indexOf(month), 1).getDay();
+  const daysInAMonth = new Date(year, months.indexOf(month) + 1, 0).getDate();
   const daysInAMonthArray = [...Array(daysInAMonth).keys()].map((i) => i + 1);
   const daysToAddOnFront = Array(firstDayOfTheMonth).fill("");
   daysInAMonthArray.unshift(daysToAddOnFront);
@@ -29,6 +30,7 @@ const Kalender = ({ data }) => {
   const filterDataByEventType = (keyword) =>
     data
       .filter((date) => months[new Date(date.start).getMonth()] === month)
+      .filter((date) => new Date(date.start).getFullYear() === year)
       .filter((date) => date[keyword])
       .map((date) => new Date(date.start).getDate());
 
@@ -104,7 +106,7 @@ const Kalender = ({ data }) => {
 
       <table className="kalender">
         <caption className="kalender__caption" aria-live="polite">
-          {month}
+          {month} {year}
         </caption>
         <thead>
           <tr className="kalender__weekdays">{weekdaysNodes}</tr>
