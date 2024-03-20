@@ -37,6 +37,7 @@ const Kalender = ({ data }) => {
   const gardendays = filterDataByEventType("gartentag");
   const cinemadays = filterDataByEventType("cinema");
   const cafedays = filterDataByEventType("cafe");
+  const kompostworkshop = filterDataByEventType("kompostworkshop");
 
 
   // nodes
@@ -58,6 +59,7 @@ const Kalender = ({ data }) => {
             {gardendays.includes(chunkBit) && <span className="garten" alt="Gartentagtermin"></span>}
             {cinemadays.includes(chunkBit) && <span className="cinema" alt="Kinotermin"></span>}
             {cafedays.includes(chunkBit) && <span className="cafe" alt="Cafetermin"></span>}
+            {kompostworkshop.includes(chunkBit) && <span className="kompostworkshop" alt="Kompostworkshop"></span>}
             {chunkBit}
           </td>
         ))}

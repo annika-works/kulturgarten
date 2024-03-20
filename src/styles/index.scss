@@ -707,7 +707,6 @@ nav.breadcrumbs {
 
   &__gartentageLegend {
     @include bold(0.5px, black);
-    font-size: 1em;
     line-height: 1.4;
     padding: 0;
     transform: translateY(-10px);
@@ -720,8 +719,6 @@ nav.breadcrumbs {
 
   .garten {
     background-color: $yellow;
-    // transform: translate(-10px, -10px)
-    //   skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
   .white {
@@ -730,17 +727,15 @@ nav.breadcrumbs {
   }
 
   .cinema {
-    // @include blob(35px, 35px, absolute);
     background-color: $purple;
-    // transform: translate(-10px, -10px)
-    //   skew((random() * 2) + deg, (random() * 2) + deg);
   }
 
   .cafe {
-    // @include blob(35px, 35px, absolute);
     background-color: $green;
-    // transform: translate(-10px, -10px)
-    //   skew((random() * 2) + deg, (random() * 2) + deg);
+  }
+
+  .kompostworkshop {
+    background-color: $dark-purple;
   }
 }
 
