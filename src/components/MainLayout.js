@@ -9,7 +9,6 @@ function MainLayout() {
   return (
     <div>
       <StartHero />
-      <Banners />
       <Utopie />
       <WerWirSind />
       <Partner/>
