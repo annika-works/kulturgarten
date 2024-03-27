@@ -732,15 +732,15 @@ nav.breadcrumbs {
     @include bold(0.5px, white);
   }
 
-  .cinema {
-    background-color: $purple;
-  }
-
   .cafe {
-    background-color: $green;
+    background-color: $lime;
   }
 
   .kompostworkshop {
+    background-color: $green;
+  }
+
+  .survivalkurs {
     background-color: $dark-purple;
   }
 }
