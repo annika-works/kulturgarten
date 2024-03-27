@@ -38,6 +38,7 @@ const Kalender = ({ data }) => {
   const cafedays = filterDataByEventType("cafe");
   const kompostworkshop = filterDataByEventType("kompostworkshop");
   const survivalkurs = filterDataByEventType("survivalkurs");
+  const permakulturwochenende = filterDataByEventType("permakultur");
 
 
   // nodes
@@ -60,6 +61,7 @@ const Kalender = ({ data }) => {
             {cafedays.includes(chunkBit) && <span className="cafe" alt="Cafetermin"></span>}
             {kompostworkshop.includes(chunkBit) && <span className="kompostworkshop" alt="Kompostworkshop"></span>}
             {survivalkurs.includes(chunkBit) && <span className="survivalkurs" alt="Survivalkurs"></span>}
+            {permakulturwochenende.includes(chunkBit) && <span className="permakultur" alt="Permakulturwochenende"></span>}
             {chunkBit}
           </td>
         ))}
@@ -120,7 +122,7 @@ const Kalender = ({ data }) => {
         <Text className="kalender__legendItem">Café</Text>
         <Text className="kalender__legendItem">Kompostworkshop</Text>
         <Text className="kalender__legendItem">Survivalkurs</Text>
-
+        <Text className="kalender__legendItem">Permakulturwochenende</Text>
       </div>
       <p className="kalender__gartentageLegend">
         Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr

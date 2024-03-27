@@ -8,6 +8,7 @@ const blogQuery = `{
               gartentag
               kompostworkshop
               survivalkurs
+              permakultur
               start
             }
             filme {
