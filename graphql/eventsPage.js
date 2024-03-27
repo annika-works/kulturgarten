@@ -7,6 +7,9 @@ const blogQuery = `{
               cinema
               end
               gartentag
+              kompostworkshop
+              survivalkurs
+              permakultur
               start
             }
             filme {

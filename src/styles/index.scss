@@ -692,10 +692,16 @@ nav.breadcrumbs {
       background-color: $yellow;
     }
     :nth-child(2)::before {
+      background-color: $lime;
+    }
+    :nth-child(3)::before {
+      background-color: $green;
+    }
+    :nth-child(4)::before {
       background-color: $purple;
     }
     :last-child::before {
-      background-color: $green;
+      background-color: $dark-purple;
     }
   }
 

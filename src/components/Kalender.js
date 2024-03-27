@@ -119,9 +119,12 @@ const Kalender = ({ data }) => {
         <Text className="kalender__legendItem">Gartentage*</Text>
         <Text className="kalender__legendItem">Freiluftkino</Text>
         <Text className="kalender__legendItem">Café</Text>
+        <Text className="kalender__legendItem">Kompostworkshop</Text>
+        <Text className="kalender__legendItem">Survivalkurs</Text>
+
       </div>
       <p className="kalender__gartentageLegend">
-        Gartentage donnerstags von 10 - 17 Uhr, samstags von 13 - 17 Uhr
+        Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr
       </p>
       <div className="kalender__controls">
         <button
