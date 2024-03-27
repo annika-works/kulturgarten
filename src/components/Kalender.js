@@ -38,6 +38,7 @@ const Kalender = ({ data }) => {
   const cinemadays = filterDataByEventType("cinema");
   const cafedays = filterDataByEventType("cafe");
   const kompostworkshop = filterDataByEventType("kompostworkshop");
+  const survivalkurs = filterDataByEventType("survivalkurs");
 
 
   // nodes
@@ -57,9 +58,9 @@ const Kalender = ({ data }) => {
         {chunk.map((chunkBit, _) => (
           <td key={Math.random() + _} className="kalender__tag">
             {gardendays.includes(chunkBit) && <span className="garten" alt="Gartentagtermin"></span>}
-            {cinemadays.includes(chunkBit) && <span className="cinema" alt="Kinotermin"></span>}
             {cafedays.includes(chunkBit) && <span className="cafe" alt="Cafetermin"></span>}
             {kompostworkshop.includes(chunkBit) && <span className="kompostworkshop" alt="Kompostworkshop"></span>}
+            {survivalkurs.includes(chunkBit) && <span className="survivalkurs" alt="Survivalkurs"></span>}
             {chunkBit}
           </td>
         ))}
@@ -117,7 +118,6 @@ const Kalender = ({ data }) => {
       </table>
       <div className="kalender__legend">
         <Text className="kalender__legendItem">Gartentage*</Text>
-        <Text className="kalender__legendItem">Freiluftkino</Text>
         <Text className="kalender__legendItem">Café</Text>
         <Text className="kalender__legendItem">Kompostworkshop</Text>
         <Text className="kalender__legendItem">Survivalkurs</Text>
