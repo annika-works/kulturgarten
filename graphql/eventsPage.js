@@ -4,9 +4,10 @@ const blogQuery = `{
           node {
             calendarDates {
               cafe
-              cinema
               end
               gartentag
+              kompostworkshop
+              survivalkurs
               start
             }
             filme {
