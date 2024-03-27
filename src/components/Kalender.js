@@ -35,7 +35,6 @@ const Kalender = ({ data }) => {
       .map((date) => new Date(date.start).getDate());
 
   const gardendays = filterDataByEventType("gartentag");
-  const cinemadays = filterDataByEventType("cinema");
   const cafedays = filterDataByEventType("cafe");
   const kompostworkshop = filterDataByEventType("kompostworkshop");
   const survivalkurs = filterDataByEventType("survivalkurs");
