@@ -9,6 +9,7 @@ const blogQuery = `{
               kompostworkshop
               survivalkurs
               permakultur
+              eventTag
               start
             }
             filme {

@@ -755,3 +755,215 @@ button.disabled:hover {
     fill: #00000040;
   }
 }
+
+.veranstaltungen {
+
+  &__selectors {
+    display: flex;
+    padding: 3rem;
+
+    select, input {
+      padding: 1rem;
+      border-radius: 0;
+    }
+
+    select {
+      transform: translateX(-1px);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    padding: 3rem;
+    gap: 3rem;
+
+    li:not(:last-child) {
+      border-bottom: 1px solid black;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__list-item-wrapper {
+    width: 100%;
+  }
+
+
+  &__list-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__date {
+    span {
+      color: black;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      //@include bold(4px, black);
+      font-family: "Ramona Bold", serif;
+      font-size: 3.5rem;
+      width: 237px;
+      line-height: 1;
+    }
+  }
+
+  &__title {
+    width: 30rem;
+
+    span {
+      color: black;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 3.5rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &__time {
+    width: 7rem;
+    display: flex;
+    justify-content: flex-end;
+    span {
+      color: black;
+    }
+  }
+
+  &__time-wrapper {
+    display: flex;
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  &__time-icon {
+    transform: translateY(-1px);
+  }
+}
+
+.flatpickr-input::-webkit-input-placeholder {
+  color:black;
+}
+
+.flatpickr-calendar.animate.open {
+  padding: 1rem 0;
+}
+
+.flatpickr-calendar .flatpickr-day.today {
+  border-color: black;
+  background: white;
+
+  &:hover {
+    background: $yellow;
+    border-color: black;
+    color: black;
+  }
+}
+
+.flatpickr-calendar .flatpickr-day.endRange,
+.flatpickr-calendar .flatpickr-day.inRange,
+.flatpickr-calendar .flatpickr-day.today.inRange,
+.flatpickr-calendar .flatpickr-day.startRange,
+.flatpickr-calendar .flatpickr-day.selected {
+  background: $yellow;
+  border-color: black;
+  color: black;
+
+  &:hover, &:focus {
+    background: $yellow;
+    border-color: black;
+    color: black;
+  }
+}
+
+.flatpickr-calendar .flatpickr-day.startRange {
+  border-right: transparent;
+}
+
+.flatpickr-calendar .flatpickr-day.endRange {
+  border-left: transparent;
+}
+
+.flatpickr-calendar .flatpickr-day.startRange.endRange {
+  border: 1px solid black;
+  &::after {
+    width: 0;
+  }
+}
+
+.flatpickr-calendar .flatpickr-day.inRange {
+  border-right: $yellow;
+  border-left: $yellow;
+}
+.flatpickr-calendar .flatpickr-day {
+  box-shadow: none !important;
+
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+  .flatpickr-calendar .flatpickr-day.inRange::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    z-index: -1;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    right: 50%;
+    width:70%;
+    background-color: $yellow;
+  }
+
+.flatpickr-calendar .flatpickr-day.endRange::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    z-index: -1;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    right: 50%;
+    width:70%;
+    background-color: $yellow;
+  }
+
+//.flatpickr-calendar .flatpickr-day.startRange.endRange::after {
+//  content: "";
+//  position: absolute;
+//  top: -1px;
+//  bottom: -1px;
+//  z-index: -1;
+//  border-top: 1px solid black;
+//  border-bottom: 1px solid black;
+//  right: 50%;
+//  width:0;
+//  background-color: $yellow;
+//}
+
+.flatpickr-calendar .flatpickr-months span {
+  margin-top: 0.78rem;
+}
+
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-weekdays,
+.flatpickr-calendar .flatpickr-month .numInputWrapper .arrowUp,
+.flatpickr-calendar .flatpickr-month .numInputWrapper .arrowDown {
+  display: none;
+}
+
+.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Safari, Chrome, Opera */
+  -webkit-appearance: none;
+}
