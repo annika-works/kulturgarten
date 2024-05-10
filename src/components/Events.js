@@ -56,7 +56,11 @@ const Events = ({ data }) => {
         if (selectedDates != null && selectedDates.length > 0) {
             let dates = [];
             let timestamps = [...new Set(selectedDates.map(date => formatDateString(date)))];
-            timestamps = getInbetweenTimestamps(timestamps[0], timestamps[1]);
+
+            if(timestamps.length > 1) {
+                timestamps = getInbetweenTimestamps(timestamps[0], timestamps[1]);
+            }
+
             timestamps.forEach(date => {
                 const maybeMatchingEvent = filteredEvents.filter(event => formatDateString(event.start) === date);
                 maybeMatchingEvent.length!== 0 && maybeMatchingEvent[0] !== false && dates.push(maybeMatchingEvent[0]);
@@ -98,6 +102,12 @@ const Events = ({ data }) => {
         }
     };
 
+    const handleReset = () => {
+        setSelectedDates(null);
+        filterEvents();
+        datePickerRef.current._flatpickr.clear();
+    }
+
   return (
       <section className="wrapper utopie veranstaltungen">
         <Title title="Projekte" className="blogPageTitle">
@@ -105,7 +115,7 @@ const Events = ({ data }) => {
         </Title>
           <div className="veranstaltungen__selectors">
               <div className="veranstaltungen__calendar">
-                  <button>test</button>
+                  <button onClick={handleReset}>Remove Date Selection</button>
                   <input
                       ref={datePickerRef}
                       type="text"
