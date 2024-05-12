@@ -8,6 +8,9 @@ const Events = ({ data }) => {
     const [type, setType] = useState('Alle');
     const [eventList, setEventList] = useState(filteredData);
     const [selectedDates, setSelectedDates] = useState(null);
+    const [dateFilter, setDateFilter] = useState(null);
+    const [dateFilterClasses, setDateFilterClasses] = useState('filter hidden');
+    const [typeFilterClasses, setTypeFilterClasses] = useState('filter hidden');
     const eventSet = new Set();
     const currentDate = new Date();
     const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
@@ -32,6 +35,7 @@ const Events = ({ data }) => {
 
     const types = Array.from(eventSet);
 
+    // adds 0 if a date is single digit
     const formatDate = (num) => {
         return num < 10 ? '0' + num : num;
     }
@@ -73,6 +77,7 @@ const Events = ({ data }) => {
 
     const handleTypeChange = (e) => {
         setType(e.target.value);
+        setTypeFilterClasses('filter');
     }
     const createFlatpickrInstance = () => {
         flatpickr(datePickerRef.current, {
@@ -81,6 +86,20 @@ const Events = ({ data }) => {
             minDate: `01.01.${currentYear}`,
             maxDate: `31.12.${currentYear + 1}`,
             onClose: function(selectedDates, dateStr, instance) {
+                let timestamps = [...new Set(selectedDates.map(date => formatDateString(date)))];
+                if(timestamps.length === 1) {
+                    const date = new Date(timestamps[0]);
+                    const formattedDate = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
+                    setDateFilter(formattedDate);
+                    setDateFilterClasses('filter');
+                }
+                if(timestamps.length > 1) {
+                    const startDate = new Date(timestamps[0]);
+                    const endDate = new Date(timestamps[1]);
+                    const formattedDate = `${startDate.getDate()}.${startDate.getMonth()+1}.${startDate.getFullYear()} - ${endDate.getDate()}.${endDate.getMonth()+1}.${endDate.getFullYear()}`
+                    setDateFilter(formattedDate);
+                    setDateFilterClasses('filter');
+                }
                 setSelectedDates(selectedDates);
             }
         });
@@ -102,10 +121,17 @@ const Events = ({ data }) => {
         }
     };
 
-    const handleReset = () => {
+    const handleDateReset = () => {
         setSelectedDates(null);
+        setDateFilterClasses('filter hidden');
         filterEvents();
         datePickerRef.current._flatpickr.clear();
+    }
+
+    const handleTypeReset = () => {
+        setType('Alle');
+        setTypeFilterClasses('filter hidden');
+        filterEvents();
     }
 
   return (
@@ -115,7 +141,6 @@ const Events = ({ data }) => {
         </Title>
           <div className="veranstaltungen__selectors">
               <div className="veranstaltungen__calendar">
-                  <button onClick={handleReset}>Remove Date Selection</button>
                   <input
                       ref={datePickerRef}
                       type="text"
@@ -134,7 +159,20 @@ const Events = ({ data }) => {
           </select>
           </div>
 
+          <div className="filters">
+              <span className={dateFilterClasses}>
+                  {dateFilter}
+                  <button onClick={handleDateReset}>X</button>
+              </span>
+
+              <span className={typeFilterClasses}>
+                  {type}
+                  <button onClick={handleTypeReset}>X</button>
+              </span>
+          </div>
+
           <ol className={"veranstaltungen__list"}>
+              {eventList.length === 0 && <p className={'noEvents'}>Keine Termine zu den ausgewählten Filtern</p>}
               {eventList.map(event => {
                   const weekday = weekdays[new Date(event.start).getDay()];
                   const startDate = new Date(event.start);
