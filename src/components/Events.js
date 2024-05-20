@@ -16,17 +16,11 @@ const Events = ({ data }) => {
     const weekdays = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
     const datePickerRef = useRef(null);
     const currentYear = new Date().getFullYear();
-    const pushEventIfCurrent = (date) => {
-        //removeAllPastDates
-        if(new Date(date.start) >= currentDate) {
-            filteredData.push(date);
-        }
-    }
 
     data.forEach(event => {
-        if (event.eventTag != null) {
+        if (event.eventTag != null && new Date(event.start) >= currentDate) {
             eventSet.add(event.eventTag);
-            pushEventIfCurrent(event);
+            filteredData.push(event);
         }
     });
 

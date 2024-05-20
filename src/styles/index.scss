@@ -766,6 +766,8 @@ button.disabled:hover {
     select, input {
       padding: 1rem;
       border-radius: 0;
+      border: 1px solid black;
+      height: 50px;
     }
 
     select {
