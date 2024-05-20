@@ -56,7 +56,6 @@ const Events = ({ data }) => {
             filteredEvents = filteredEvents.filter(event => event.eventTag === type);
         }
 
-
         if (selectedDates != null && selectedDates.length > 0) {
             let dates = [];
             let timestamps = [...new Set(selectedDates.map(date => formatDateString(date)))];
@@ -77,7 +76,9 @@ const Events = ({ data }) => {
 
     const handleTypeChange = (e) => {
         setType(e.target.value);
-        setTypeFilterClasses('filter');
+        e.target.value === 'Alle' ?
+            setTypeFilterClasses('filter hidden') :
+            setTypeFilterClasses('filter');
     }
     const createFlatpickrInstance = () => {
         flatpickr(datePickerRef.current, {
@@ -149,7 +150,7 @@ const Events = ({ data }) => {
                       readOnly
                   />
               </div>
-              <select name="Genres" id="genres" defaultValue="DEFAULT" aria-label="Wähle eine Kategorie"
+              <select name="Genres" id="genres" value={type} aria-label="Wähle eine Kategorie"
                       onChange={handleTypeChange}>
                   <option value="DEFAULT" disabled hidden>Kategorie</option>
               <option value="Alle">Alle Kategorien</option>
