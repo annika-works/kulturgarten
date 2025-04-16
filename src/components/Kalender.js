@@ -38,8 +38,6 @@ const Kalender = ({ data }) => {
   const cafedays = filterDataByEventType("cafe");
   const cinemadays = filterDataByEventType("cinema");
 
-  console.log(`data: ${cinemadays}`);
-
 
   // nodes
   const weekdaysNodes = weekdays.map((weekday, _) => (
@@ -116,13 +114,13 @@ const Kalender = ({ data }) => {
         <tbody>{tBodyNodes}</tbody>
       </table>
       <div className="kalender__legend">
-        <Text className="kalender__legendItem">Gartentage*</Text>
+        <Text className="kalender__legendItem">Gartentage</Text>
         <Text className="kalender__legendItem">Café</Text>
         <Text className="kalender__legendItem">Kino</Text>
       </div>
-      <p className="kalender__gartentageLegend">
-        Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr
-      </p>
+      {/*<p className="kalender__gartentageLegend">*/}
+      {/*  Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr*/}
+      {/*</p>*/}
       <div className="kalender__controls">
         <button
           aria-label="Nächster Monat"
