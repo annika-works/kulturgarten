@@ -36,9 +36,7 @@ const Kalender = ({ data }) => {
 
   const gardendays = filterDataByEventType("gartentag");
   const cafedays = filterDataByEventType("cafe");
-  const kompostworkshop = filterDataByEventType("kompostworkshop");
-  const survivalkurs = filterDataByEventType("survivalkurs");
-  const permakulturwochenende = filterDataByEventType("permakultur");
+  const cinemadays = filterDataByEventType("cinema");
 
 
   // nodes
@@ -59,9 +57,7 @@ const Kalender = ({ data }) => {
           <td key={Math.random() + _} className="kalender__tag">
             {gardendays.includes(chunkBit) && <span className="garten" alt="Gartentagtermin"></span>}
             {cafedays.includes(chunkBit) && <span className="cafe" alt="Cafetermin"></span>}
-            {kompostworkshop.includes(chunkBit) && <span className="kompostworkshop" alt="Kompostworkshop"></span>}
-            {survivalkurs.includes(chunkBit) && <span className="survivalkurs" alt="Survivalkurs"></span>}
-            {permakulturwochenende.includes(chunkBit) && <span className="permakultur" alt="Permakulturwochenende"></span>}
+            {cinemadays.includes(chunkBit) && <span className="permakultur" alt="Kinotermin"></span>}
             {chunkBit}
           </td>
         ))}
@@ -118,15 +114,13 @@ const Kalender = ({ data }) => {
         <tbody>{tBodyNodes}</tbody>
       </table>
       <div className="kalender__legend">
-        <Text className="kalender__legendItem">Gartentage*</Text>
+        <Text className="kalender__legendItem">Gartentage</Text>
         <Text className="kalender__legendItem">Café</Text>
-        <Text className="kalender__legendItem">Kompostworkshop</Text>
-        <Text className="kalender__legendItem">Survivalkurs</Text>
-        <Text className="kalender__legendItem">Permakulturwochenende</Text>
+        <Text className="kalender__legendItem">Kino</Text>
       </div>
-      <p className="kalender__gartentageLegend">
-        Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr
-      </p>
+      {/*<p className="kalender__gartentageLegend">*/}
+      {/*  Gartentage donnerstags von 11 - 17 Uhr, samstags von 13 - 17 Uhr*/}
+      {/*</p>*/}
       <div className="kalender__controls">
         <button
           aria-label="Nächster Monat"
