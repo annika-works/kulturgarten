@@ -11,6 +11,11 @@ const blogQuery = `{
               permakultur
               eventTag
               start
+              title
+              short_description
+              summary {
+                raw
+              }
             }
             filme {
               titel

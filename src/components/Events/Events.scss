@@ -1,0 +1,167 @@
+/*screens*/
+$desktop: 768px;
+$bigScreen: 1120px;
+$maxWidth: 980px;
+$textWidth: 600px;
+
+.veranstaltungen {
+  &__selectors {
+    display: flex;
+    padding: 3rem 3rem 1.5rem 3rem;
+
+    select, input {
+      font-family: "Work Sans";
+      padding: 1rem;
+      border-radius: 0;
+      border: 1px solid black;
+      height: 50px;
+    }
+
+    select {
+      transform: translateX(-1px);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    padding: 3rem;
+    gap: 3rem;
+
+    @media (min-width: $bigScreen) {
+      width: 70vw;
+    }
+
+    li:not(:last-child) {
+      border-bottom: 1px solid black;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__list-item-wrapper {
+    width: 100%;
+  }
+
+  &__list-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+
+    @media (min-width: $bigScreen) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  &__list-item-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__list-item-container:hover &__title-main {
+    text-decoration: underline;
+  }
+
+  &__list-item-button {
+    background: none;
+    border:none;
+    height: 100%;
+
+    z-index: 2; // Ensure it stays on top
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      bottom: -10px;
+      left: -10px;
+      right: -10px;
+      z-index: 1;
+      cursor:pointer;
+    }
+  }
+
+  &__summary {
+    height: 0;
+    overflow: hidden;
+
+    &.expanded {
+      height: auto;
+      margin-top: 2rem;
+    }
+  }
+
+  .middle {
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__list-item-container:nth-child(1) {
+      justify-self: start;
+    @media (min-width: $bigScreen) {
+      justify-self: end; // Align to the right
+    }
+  }
+
+  &__day {
+    font-family: "Ramona Bold", serif;
+    font-size: 2.5rem;
+    width: 237px;
+    line-height: 1;
+
+    @media (min-width: $bigScreen) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__title {
+    width: 30rem;
+  }
+
+  &__marginals {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title-main {
+    font-size: 2.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    padding: 5px 0;
+
+    @media (min-width: $bigScreen) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__time-wrapper {
+    display: flex;
+    gap: 5px;
+    padding: 0 5px;
+  }
+
+  &__time-icon {
+    transform: translateY(-1px);
+    color: black;
+  }
+
+  &__arrow-down {
+    width: 20px;
+    position: absolute;
+    top: 0;
+
+    &.expanded {
+      transform: rotate(3.142rad);
+    }
+  }
+}

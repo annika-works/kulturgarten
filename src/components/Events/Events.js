@@ -1,7 +1,12 @@
 import React, {useEffect, useRef, useState} from "react";
-import { Title } from "./common/Title";
+import "./Events.scss"
+import { Title } from "../common/Title";
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';
+import { formatDate, formatDateString, getInbetweenTimestamps } from './utils';
+import EventSelect from "./EventSelect";
+import FilterSection from "./FilterSection";
+import Event from "./Event";
 
 const Events = ({ data }) => {
     const filteredData = [];
@@ -28,21 +33,6 @@ const Events = ({ data }) => {
     filteredData.sort((a, b) => new Date(a.start) - new Date(b.start));
 
     const types = Array.from(eventSet);
-
-    // adds 0 if a date is single digit
-    const formatDate = (num) => {
-        return num < 10 ? '0' + num : num;
-    }
-
-    const formatDateString = (date) => new Date(date).setHours(0,0,0,0);
-
-    function getInbetweenTimestamps(startTimestamp, endTimestamp) {
-        const timestamps = [];
-        for (let timestamp = startTimestamp; timestamp <= endTimestamp; timestamp += 86400000) {
-            timestamps.push(timestamp);
-        }
-        return timestamps;
-    }
 
     const filterEvents = () => {
         let filteredEvents = [...filteredData];
@@ -134,38 +124,20 @@ const Events = ({ data }) => {
         <Title title="Projekte" className="blogPageTitle">
           Veranstaltungen
         </Title>
-          <div className="veranstaltungen__selectors">
-              <div className="veranstaltungen__calendar">
-                  <input
-                      ref={datePickerRef}
-                      type="text"
-                      placeholder="Datum"
-                      onClick={openFlatpickr}
-                      readOnly
-                  />
-              </div>
-              <select name="Genres" id="genres" value={type} aria-label="Wähle eine Kategorie"
-                      onChange={handleTypeChange}>
-                  <option value="DEFAULT" disabled hidden>Kategorie</option>
-              <option value="Alle">Alle Kategorien</option>
-              {types.map(type =>
-                <option key={type} value={type}>{type}</option>
-              )}
-          </select>
-          </div>
-
-          <div className="filters">
-              <span className={dateFilterClasses}>
-                  {dateFilter}
-                  <button onClick={handleDateReset}>X</button>
-              </span>
-
-              <span className={typeFilterClasses}>
-                  {type}
-                  <button onClick={handleTypeReset}>X</button>
-              </span>
-          </div>
-
+        <EventSelect
+            datePickerRef={datePickerRef}
+            openFlatpickr={openFlatpickr}
+            type={type} types={types}
+            handleTypeChange={handleTypeChange}>
+        </EventSelect>
+        <FilterSection
+            dateFilter={dateFilter}
+            dateFilterClasses={dateFilterClasses}
+            handleDateReset={handleDateReset}
+            type={type}
+            typeFilterClasses={typeFilterClasses}
+            handleTypeReset={handleTypeReset}>
+        </FilterSection>
           <ol className={"veranstaltungen__list"}>
               {eventList.length === 0 && <p className={'noEvents'}>Keine Termine zu den ausgewählten Filtern</p>}
               {eventList.map(event => {
@@ -186,34 +158,28 @@ const Events = ({ data }) => {
                               </p>
                           )
                       }
-                      return (<p className={"veranstaltungen__day"}>{`${startDay}.${month}.`}</p>);
+                      return (<time dateTime={startDate.toString()} className={"veranstaltungen__day"}>{`${startDay}.${month}.`}</time>);
                    }
 
-                   const formattedTime = () => {
-                       if(startDay === endDay) {
-                           return `${startTime} - ${endTime}`
-                       }
-                       return startTime;
-                   }
+                  const formattedTime = () => {
+                      if(startDay === endDay) {
+                          return `${startTime}-${endTime}`
+                      }
+                      return startTime;
+                  }
                return (
                    <li key={`${startDay}-${Math.random()}`} className="veranstaltungen__list-item-wrapper">
-                       <article className="veranstaltungen__list-item">
-                           <div className="veranstaltungen__date">
-                               <span>{weekday}</span>
-                               {formattedDate()}
-                           </div>
-                           <div className="veranstaltungen__title">
-                               <span>{event.eventTag}</span>
-                                <p className="veranstaltungen__title-main">{event.eventTag}</p>
-                               <span className="veranstaltungen__subtitle">Mit Live Musik von Marc Otto Paul</span>
-                           </div>
-                           <div className="veranstaltungen__time">
-                               <span className="veranstaltungen__time-wrapper">
-                                   <span className="veranstaltungen__time-icon">{'\u25f4'}</span>
-                                   {formattedTime()}
-                               </span>
-                           </div>
-                       </article>
+                       <Event
+                           event={event}
+                           weekday={weekday}
+                           formattedDate={formattedDate}
+                           formattedTime={formattedTime}
+                           startDay={startDay}
+                           startTime={startTime}
+                           endDay={endDay}
+                           endTime={endTime}
+                       >
+                       </Event>
                    </li>
                )
                   }

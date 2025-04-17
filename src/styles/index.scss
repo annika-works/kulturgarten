@@ -68,10 +68,11 @@ html {
 
 span.h1 {
   @include bold(0.5px, black);
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: black;
   padding: 20px;
+  font-family: "Work Sans";
 }
 
 h2 {
@@ -311,6 +312,7 @@ nav.nav li {
 }
 
 p {
+  font-family: "Work Sans";
   font-size: 18px;
   line-height: 1.5;
 
@@ -357,22 +359,17 @@ p {
 }
 
 .blogPageEntry {
-  max-width: $maxWidth;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 10px auto;
-
-  @media (min-width: $maxWidth) {
-    flex-direction: row;
+  @media (min-width: $bigScreen) {
+    width: calc(50% - 20px);
   }
 
   article,
   figure {
-    @media (min-width: $maxWidth) {
-      width: 50%;
-    }
     width: 100%;
+    height: 100%;
   }
 
   figure {
@@ -453,6 +450,15 @@ p {
     padding: 4rem;
   }
   padding: 2rem 5px;
+}
+
+.blogpage {
+  &__blogposts {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 980px;
+    gap: 15px;
+  }
 }
 
 .blogEntryContent header {
@@ -753,103 +759,6 @@ nav.breadcrumbs {
 button.disabled:hover {
   svg path {
     fill: #00000040;
-  }
-}
-
-.veranstaltungen {
-
-  &__selectors {
-    display: flex;
-    padding: 3rem;
-    padding-bottom: 1.5rem;
-
-    select, input {
-      padding: 1rem;
-      border-radius: 0;
-      border: 1px solid black;
-      height: 50px;
-    }
-
-    select {
-      transform: translateX(-1px);
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    width: 60vw;
-    padding: 3rem;
-    gap: 3rem;
-
-    li:not(:last-child) {
-      border-bottom: 1px solid black;
-      padding-bottom: 2rem;
-    }
-  }
-
-  &__list-item-wrapper {
-    width: 100%;
-  }
-
-
-  &__list-item {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  &__date {
-    span {
-      color: black;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      //@include bold(4px, black);
-      font-family: "Ramona Bold", serif;
-      font-size: 3.5rem;
-      width: 237px;
-      line-height: 1;
-    }
-  }
-
-  &__title {
-    width: 30rem;
-
-    span {
-      color: black;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 3.5rem;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-  }
-
-  &__time {
-    width: 7rem;
-    display: flex;
-    justify-content: flex-end;
-    span {
-      color: black;
-    }
-  }
-
-  &__time-wrapper {
-    display: flex;
-    gap: 5px;
-    padding: 0 5px;
-  }
-
-  &__time-icon {
-    transform: translateY(-1px);
   }
 }
 

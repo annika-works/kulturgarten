@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Seo from "../components/common/Seo";
-import Events from "../components/Events";
+import Events from "../components/Events/Events";
 
 const eventsPageTemplate = ({ pageContext }) => {
   const { calendarDates } = pageContext.data;
