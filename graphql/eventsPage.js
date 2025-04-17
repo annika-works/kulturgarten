@@ -9,8 +9,13 @@ const blogQuery = `{
               kompostworkshop
               survivalkurs
               permakultur
-              cinema
+              eventTag
               start
+              title
+              short_description
+              summary {
+                raw
+              }
             }
             filme {
               titel

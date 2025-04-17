@@ -2,11 +2,10 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Seo from "../components/common/Seo";
-import Kino from "../components/Freiluftkino";
-import Calendar from "../components/Kalender";
+import Events from "../components/Events/Events";
 
 const eventsPageTemplate = ({ pageContext }) => {
-  const { filme, calendarDates } = pageContext.data;
+  const { calendarDates } = pageContext.data;
   const seo = {
     title: "Kulturgarten Pinneberg e.V.: Veranstaltungen",
     description: "Verpasse keine unserer Veranstaltungen!",
@@ -21,8 +20,7 @@ const eventsPageTemplate = ({ pageContext }) => {
         ogImage={seo.ogImage}
       />
       <Header />
-      <Calendar data={calendarDates} />
-      <Kino filme={filme}/>
+      <Events data={calendarDates} />
       <Footer position="fixed" />
     </>
   );

@@ -26,20 +26,22 @@ const blogPageTemplate = ({ pageContext }) => {
           In diesem Blog erzählen wir von unseren bisherigen Erfolgen, Arbeiten
           und Projekten, die im Kontext des KuGaPi Projektes anfallen.
         </Text>
+        <ul className={"blogpage__blogposts"}>
+            {entries.map((entry, i) => (
+              <li className="blogPageEntry" key={i}>
+                <figure>
+                  <Image src={entry.blogfoto.file.url} alt={entry.blogfoto.title}></Image>
+                </figure>
+                <article>
+                  <time dateTime={entry.datum}>{date(entry.datum)}</time>
+                  <h3>{entry.titel}</h3>
+                  <p>{entry.kurzbeschreibung}</p>
+                  <a href={`/blog/${entry.slug}`} aria-label={entry.titel}>Lies mehr</a>
+                </article>
+              </li>
+            ))}
+        </ul>
 
-        {entries.map((entry, i) => (
-          <article className="blogPageEntry" key={i}>
-            <figure>
-              <Image src={entry.blogfoto.file.url} alt={entry.blogfoto.title}></Image>
-            </figure>
-            <article>
-              <time dateTime={entry.datum}>{date(entry.datum)}</time>
-              <h3>{entry.titel}</h3>
-              <p>{entry.kurzbeschreibung}</p>
-              <a href={`/blog/${entry.slug}`} aria-label={entry.titel}>Lies mehr</a>
-            </article>
-          </article>
-        ))}
 
       </section>
       <Footer position='fixed' />
