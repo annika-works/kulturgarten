@@ -28,7 +28,7 @@ function Footer({position}) {
                 <li><Link to='/#werWirSind'>Team</Link></li>
                 <li><Link to='/veranstaltungen'>Events</Link></li>
                 <li><Link to='/blog'>Blog</Link></li>
-                {/*<li><a>FAQ</a></li>*/}
+                <li><Link to='/faq'>FAQ</Link></li>
                 {/*<li><a>Presse</a></li>*/}
               </ul>
               <ul className={"footer__nav-list"}>
