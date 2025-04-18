@@ -104,12 +104,20 @@ $mobile: 480px;
   }
 
   &__summary {
-    height: 0;
     overflow: hidden;
+    transition:
+            opacity 0.2s ease,
+            border-color 0.2s ease,
+            padding 0.3s ease,
+            max-height 0.3s ease;
+    max-height: 0;
+    opacity: 0;
 
     &.expanded {
-      height: auto;
+      opacity: 1;
+      border-color: black;
       margin-top: 2rem;
+      max-height: 1000px;
     }
   }
 
@@ -177,9 +185,13 @@ $mobile: 480px;
     width: 20px;
     position: absolute;
     top: 0;
+  }
 
-    &.expanded {
+  svg {
+      transition: transform 0.3s ease;
+  }
+
+  &__arrow-down--open {
       transform: rotate(3.142rad);
     }
-  }
 }

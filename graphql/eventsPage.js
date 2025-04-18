@@ -1,4 +1,4 @@
-const blogQuery = `{
+const eventsQuery = `{
     allContentfulVeranstaltungen {
         edges {
           node {
@@ -35,4 +35,4 @@ const blogQuery = `{
       }
 }`;
 
-module.exports = blogQuery;
+module.exports = eventsQuery;

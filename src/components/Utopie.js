@@ -1,32 +1,28 @@
 import React from "react";
-import { useUtopie } from "../hooks/use-utopie";
 import { Title } from "./common/Title";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import Line from "../assets/svgs/line_01.svg";
-import LineTwo from "../assets/svgs/line_02.svg";
-import LineThree from "../assets/svgs/line_03.svg";
-import LineFour from "../assets/svgs/line_04.svg";
-
-const Projects = ({ children }) => <div className="projects">{children}</div>;
-
-const lines = [Line, LineTwo, LineThree, LineFour];
+import './Utopie.scss';
+import UtopiaTwo from "../assets/images/utopia_2.jpg"
+import UtopiaThree from "../assets/images/utopia_3.png"
+import UtopiaFour from "../assets/images/utopia_4.jpg"
+import {Image} from "../../contentful";
 
 const Utopie = () => {
-  const utopieData = useUtopie();
   return (
-    <section className="wrapper utopie" id="utopie">
-      <Title title="Unsere Utopie">
-        Den Kopf voller <span>Ideen</span>.
+    <section className="wrapper utopia" id="utopie">
+      <Title>
+        Den Kopf voller Ideen.
       </Title>
-      <Projects>
-        {utopieData.projectEntries.map((entry, i) => (
-          <div key={i} className="projectEntry">
-            <h3>{entry.title}</h3>
-            <img alt="subline" aria-hidden="true" src={lines[Math.floor(Math.random() * lines.length)]} style={{transform: 'translateY(-25px)'}}/>
-            {renderRichText(entry.description)}
-          </div>
-        ))}
-      </Projects>
+        <div className="utopia__copy">
+            <p>Auf 1 Hektar verwildertem Land entsteht ein bunter Garten für alle – ein Ort zum Gärtnern, Lernen und Begegnen. Wir bringen Stadt- und Landmenschen aus Pinneberg und Umgebung zusammen, teilen Wissen, arbeiten gemeinsam</p>
+            <p> und feiern das Miteinander. Bei offenen Gartentagen, Open-Air-Kino und Café-Nachmittagen wächst hier nicht nur Gemüse, sondern auch Gemeinschaft.</p>
+        </div>
+        <div className={"utopia__image-grid-container"}>
+            <div className="utopia__image-grid">
+                <Image className="utopia__wide1" src={UtopiaFour}></Image>
+                <Image className="utopia__tall" src={UtopiaTwo}></Image>
+                <Image className="utopia__wide2" src={UtopiaThree}></Image>
+            </div>
+        </div>
     </section>
   );
 };

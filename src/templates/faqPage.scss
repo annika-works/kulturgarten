@@ -1,0 +1,44 @@
+/* colors */
+$yellow: #e1f500;
+$lime: #b0dc33;
+$green: #01493b;
+$purple: #6f3ef9;
+$dark-purple: #432595;
+
+/*screens*/
+$desktop: 768px;
+$bigScreen: 1120px;
+$maxWidth: 980px;
+$textWidth: 600px;
+$mobile: 480px;
+
+.faq {
+
+  @media (min-width: $bigScreen) {
+    padding: 10rem;
+  }
+
+ &__category-container {
+   display: flex;
+   flex-direction: column;
+   max-width: 1536px;
+   width: 100%;
+ }
+  &__category {
+    -webkit-text-stroke: unset;
+    font-family: Work Sans, sans-serif;
+    margin: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+    max-width: 720px;
+  }
+
+  &__list-item {
+    max-width: 720px;
+  }
+}

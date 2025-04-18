@@ -1,0 +1,76 @@
+/* colors */
+$yellow: #e1f500;
+$lime: #b0dc33;
+$green: #01493b;
+$purple: #6f3ef9;
+$dark-purple: #432595;
+
+/*screens*/
+$desktop: 768px;
+$bigScreen: 1120px;
+$maxWidth: 980px;
+$textWidth: 600px;
+$mobile: 480px;
+
+
+.collapsible {
+  margin: 0;
+  max-width: 720px;
+
+  &__hide {
+    display: none;
+  }
+
+  &__toggle {
+    font-size: 21px;
+    padding: 1rem 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: inherit;
+    background: $yellow;
+    border: 1px solid black;
+
+    svg {
+      width: 32px;
+      margin-left: 1rem;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &__open {
+    transform: rotate(3.142rad);
+  }
+
+  &__content {
+    overflow: hidden;
+    transition:
+            opacity 0.2s ease,
+            border-color 0.2s ease,
+            padding 0.3s ease,
+            max-height 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    background: $yellow;
+
+    border: 1px solid transparent;
+    border-top: none;
+    padding: 0 2rem;
+  }
+
+  &__content--open {
+    max-width: 720px;
+    max-height: 1000px;
+    opacity: 1;
+    padding: 1rem 2rem;
+    border-color: black;
+  }
+
+  &__paragraph {
+    max-width: 720px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}

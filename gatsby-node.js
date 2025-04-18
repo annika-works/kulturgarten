@@ -3,6 +3,7 @@ const imprintQuery = require('./graphql/imprintPage');
 const blogQuery = require('./graphql/blogPage');
 const blogEntryQuery = require('./graphql/blogEntryPage');
 const eventsQuery = require('./graphql/eventsPage');
+const faqQuery = require('./graphql/faqPage');
 const slash = require('slash');
 const chalk = require('chalk');
 const { ACTIVE_ENV } = require('./configuration');
@@ -13,6 +14,7 @@ function getPageConfig(type, edge) {
     const blog = path.resolve(`src/templates/blogPage.js`);
     const blogEntry = path.resolve(`src/templates/blogEntryPage.js`);
     const events = path.resolve(`src/templates/eventsPage.js`);
+    const faq = path.resolve(`src/templates/faqPage.js`);
 
     switch (type) {
         case 'impressum':
@@ -55,9 +57,20 @@ function getPageConfig(type, edge) {
                 context: {
                     id: edge.node.id,
                     data: { ...edge.node },
-                    lug: edge.node.slug,
+                    slug: edge.node.slug,
                     name: edge.node.title,
                }
+            }
+        case 'faq':
+            return {
+                path: '/faq/',
+                component: slash(faq),
+                context: {
+                    id: edge.node.id,
+                    data: { ...edge.node },
+                    slug: edge.node.slug,
+                    name: edge.node.title,
+                }
             }
         default: 
             return {};
@@ -72,7 +85,10 @@ exports.createPages = async ({ graphql, actions }) => {
       await graphql(query).then(result => {
         if(result.errors) throw result.errors;
 
-        result.data[queryResult].edges.forEach(edge => {
+
+
+          result.data[queryResult].edges.forEach(edge => {
+            console.log('FAQ query result:', string, edge);
             createPage(getPageConfig(string, edge));
         })
       })
@@ -82,8 +98,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const blogPagePromise = createPagePromise(blogQuery, 'blog', 'allContentfulBlogEntries' );
     const blogEntryPagePromise = createPagePromise(blogEntryQuery, 'blogEntry', 'allContentfulBlogEntry' );
     const eventsPagePromise = createPagePromise(eventsQuery, 'events', 'allContentfulVeranstaltungen' );
+    const faqPagePromise = createPagePromise(faqQuery, 'faq', 'allContentfulFaq' );
 
-    await Promise.all([imprintPromise, blogPagePromise, blogEntryPagePromise, eventsPagePromise]);
+    await Promise.all([imprintPromise, blogPagePromise, blogEntryPagePromise, eventsPagePromise, faqPagePromise]);
 };
 
 exports.onPreInit = () => {

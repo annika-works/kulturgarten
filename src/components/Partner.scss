@@ -1,0 +1,32 @@
+/* colors */
+$yellow: #e1f500;
+$lime: #b0dc33;
+$green: #01493b;
+$purple: #6f3ef9;
+$dark-purple: #432595;
+
+/*screens*/
+$desktop: 768px;
+$bigScreen: 1120px;
+$maxWidth: 980px;
+$textWidth: 600px;
+
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1536px;
+  width: 100%;
+  gap: 15px;
+
+  .partner {
+    width: 100px;
+
+    @media (min-width: $desktop) {
+      width: 120px;
+    }
+  }
+
+}

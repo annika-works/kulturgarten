@@ -27,8 +27,8 @@ const Event = ({ weekday, formattedDate, formattedTime, event, startDay, startTi
                 <span className="veranstaltungen__marginals">{event.short_description}</span>
                 <div id="veranstaltungen_summary" className={`veranstaltungen__summary ${expanded ? " expanded" : ""}`}>{renderRichText(event.summary, blogEntryContentStyling)}</div>
               </div>
-              <button aria-expanded={expanded} aria-controls="veranstaltungen_summary" className={"veranstaltungen__list-item-button"} onClick={toggleDescription}>
-                  <ArrowIcon arrowClasses={`veranstaltungen__arrow-down ${expanded ? " expanded" : ""}`}></ArrowIcon>
+              <button aria-expanded={expanded} data-expendable="veranstaltungen__summary" aria-controls="veranstaltungen_summary" className={"veranstaltungen__list-item-button"} onClick={toggleDescription}>
+                  <ArrowIcon arrowClasses={`veranstaltungen__arrow-down ${expanded ? " veranstaltungen__arrow-down--open" : ""}`}></ArrowIcon>
               </button>
           </div>
           <div className="veranstaltungen__list-item-container">
