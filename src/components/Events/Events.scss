@@ -3,11 +3,16 @@ $desktop: 768px;
 $bigScreen: 1120px;
 $maxWidth: 980px;
 $textWidth: 600px;
+$mobile: 480px;
 
 .veranstaltungen {
   &__selectors {
     display: flex;
     padding: 3rem 3rem 1.5rem 3rem;
+
+    @media (max-width: $mobile) {
+      padding: 1.5rem 10px;
+    }
 
     select, input {
       font-family: "Work Sans";
@@ -15,6 +20,9 @@ $textWidth: 600px;
       border-radius: 0;
       border: 1px solid black;
       height: 50px;
+      @media (max-width: $mobile) {
+        padding: 0;
+      }
     }
 
     select {
@@ -26,11 +34,11 @@ $textWidth: 600px;
     display: flex;
     flex-direction: column;
     width: 90vw;
-    padding: 3rem;
     gap: 3rem;
 
     @media (min-width: $bigScreen) {
       width: 70vw;
+      padding: 3rem;
     }
 
     li:not(:last-child) {
@@ -46,11 +54,11 @@ $textWidth: 600px;
   &__list-item {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0;
 
     @media (min-width: $bigScreen) {
       grid-template-columns: 1fr 1fr 1fr;
+      padding: 1rem;
       gap: 4rem;
     }
   }
@@ -58,12 +66,22 @@ $textWidth: 600px;
   &__list-item-container {
     position: relative;
     display: flex;
-    flex-direction: column;
     gap: 0.25rem;
+    flex-direction: row;
+    align-items: center;
+
+    @media (min-width: $bigScreen) {
+      align-items: start;
+      flex-direction: column;
+    }
   }
 
   &__list-item-container:hover &__title-main {
     text-decoration: underline;
+  }
+
+  &__list-item-copy {
+    width: 100%;
   }
 
   &__list-item-button {
@@ -109,13 +127,12 @@ $textWidth: 600px;
   }
 
   &__day {
-    font-family: "Ramona Bold", serif;
-    font-size: 2.5rem;
+    font-size: 21px;
     width: 237px;
     line-height: 1;
 
     @media (min-width: $bigScreen) {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -125,11 +142,12 @@ $textWidth: 600px;
 
   &__marginals {
     font-family: 'Work Sans', sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     color: black;
     display: inline-block;
     margin-bottom: 0.5rem;
+    line-height: 1.3;
   }
 
   &__title-main {
