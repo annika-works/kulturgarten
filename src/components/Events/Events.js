@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import "./Events.scss"
+import "./Events.scss";
 import { Title } from "../common/Title";
 import flatpickr from "flatpickr";
 import 'flatpickr/dist/flatpickr.min.css';

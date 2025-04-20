@@ -25,12 +25,12 @@ html {
 ::-moz-selection {
   /* Code for Firefox */
   color: black;
-  background: $lime;
+  background: $yellow;
 }
 
 ::selection {
   color: black;
-  background: $lime;
+  background: $yellow;
 }
 
 @mixin bold($width, $color) {
@@ -72,11 +72,11 @@ span.h1 {
   text-transform: uppercase;
   color: black;
   padding: 20px;
-  font-family: "Work Sans";
+  font-family: "Work Sans", serif;
 }
 
 h2 {
-  text-align: center;
+  //text-align: center;
   @include h2();
 }
 
@@ -92,8 +92,8 @@ h4 {
   max-width: $desktop;
 }
 
-span {
-  color: $lime;
+img {
+  border-radius: 3px;
 }
 
 .mobileNavigation {
@@ -102,7 +102,7 @@ span {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: $lime;
+  background: $yellow;
 
   nav {
     display: flex;
@@ -193,78 +193,7 @@ nav.nav li {
   padding: 2rem 1rem;
 
   @media (min-width: $bigScreen) {
-    flex-direction: row;
     padding: 4rem;
-  }
-}
-
-.start {
-  padding-top: 6rem;
-  padding-bottom: 0;
-  @media (min-width: $desktop) {
-    padding-top: 10rem;
-  }
-}
-
-.startDiv {
-  max-width: 450px;
-  &:last-child {
-    max-width: initial;
-  }
-
-  @media (min-width: $desktop) {
-    width: 450px;
-
-    img {
-      height: 100% !important;
-    }
-  }
-
-  img {
-    height: 170px;
-    margin: 20px;
-  }
-}
-
-.spiral {
-  position: absolute;
-  right: 0;
-  top: 20%;
-  @media (min-width: $bigScreen) {
-    width: 150px;
-    right: auto;
-    transform: translate(480px);
-  }
-  @media (max-width: $desktop) {
-    opacity: 0;
-  }
-}
-
-.secondSpiral {
-  position: absolute;
-  right: 0;
-  width: 200px;
-  transform: translate(-115px, -50px);
-  @media (max-width: $maxWidth) {
-    transform: translate(0, -50px);
-  }
-  @media (max-width: $desktop) {
-    opacity: 0;
-  }
-}
-
-.heart {
-  position: absolute;
-  left: 10%;
-  top: 2%;
-  @media (min-width: $bigScreen) {
-    top: 20%;
-    left: auto;
-    width: 40px;
-    transform: translate(-435px, -90px);
-  }
-  @media (max-width: $desktop) {
-    opacity: 0;
   }
 }
 
@@ -272,16 +201,11 @@ nav.nav li {
   position: relative;
 }
 
-.utopie {
-  flex-direction: column;
-  scroll-margin-top: 120px;
-}
-
 .title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 4rem;
+  width: 100%;
+  max-width: 1536px;
+  margin: 4rem 0;
 }
 
 .title h1 {
@@ -318,43 +242,6 @@ p {
 
   @media (min-width: $desktop) {
     font-size: 21px;
-  }
-}
-
-.contentSection {
-  max-width: $maxWidth;
-  text-align: center;
-
-  figure {
-    margin: 0 0 4rem 0;
-    position: relative;
-  }
-}
-
-.footer {
-  bottom: 0;
-  background: $lime;
-  width: 100vw;
-  padding: 0.5rem 4rem;
-  display: flex;
-  justify-content: center;
-}
-
-.partners {
-  max-width: $maxWidth;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.partner {
-  width: 110px;
-  margin: 15px;
-
-  @media (min-width: $desktop) {
-    width: 150px;
   }
 }
 
@@ -421,6 +308,7 @@ p {
 
 .blogPageTitle {
   margin: 3rem 0 1rem 0;
+  justify-content: center;
   @media (min-width: $desktop) {
     margin: 8rem 0 1rem 0;
   }
@@ -456,7 +344,7 @@ p {
   &__blogposts {
     display: flex;
     flex-wrap: wrap;
-    max-width: 980px;
+    max-width: 1536px;
     gap: 15px;
   }
 }
@@ -503,7 +391,7 @@ nav.breadcrumbs {
   }
 
   span {
-    @include bold(0.7px, $lime);
+    @include bold(0.7px, $yellow);
     letter-spacing: 0.05em;
   }
   span.blogEntryTitle {
@@ -666,7 +554,7 @@ nav.breadcrumbs {
 
       &:hover {
         svg path {
-          fill: $lime;
+          fill: $yellow;
         }
       }
     }
