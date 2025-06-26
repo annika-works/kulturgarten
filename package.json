@@ -19,7 +19,7 @@
     "contentful": "^10.6.12",
     "eslint-config-react-app": "^7.0.1",
     "flatpickr": "^4.6.13",
-    "gatsby": "^5.12.11",
+    "gatsby": "^5.14.5",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
@@ -43,7 +43,7 @@
   "repository": "git@github.com:annika-works/kulturgarten.git",
   "license": "MIT",
   "engines": {
-    "node": ">=18.20.0",
+    "node": ">=20.19.3",
     "npm": ">=8.6.0"
   }
 }
