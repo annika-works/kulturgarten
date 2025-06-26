@@ -5,6 +5,3 @@ environment = { NODE_VERSION = "20.19.3" }
 
 [[plugins]]
 package = "@netlify/plugin-gatsby"
-
-[plugins.inputs]
-skipCache = true
