@@ -6,7 +6,6 @@ node_modules
 .env.*
 yarn-error.log
 .npmrc
-.nvmrc
 coverage
 yarn.lock
 package-lock.json
